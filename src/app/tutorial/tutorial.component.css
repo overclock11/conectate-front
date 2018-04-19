@@ -1,7 +1,55 @@
-.ng-valid[required], .ng-valid.required  {
-    border-left: 5px solid #42A948; /* green */
-  }
-  
-  .ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
-  }
+.conectate-card{
+  width: 250px;  
+  height: 300px;  
+  margin:0 10px 10px 0;    
+  display: inline-block;
+}
+
+.mat-card-title{
+  font-weight: 600;
+  min-height: 40px;
+}
+
+.mat-card-avatar {
+    height: 20px;
+    width: 20px;    
+}
+
+.mat-card-actions {
+  position: absolute;
+  bottom: 30px;
+}
+
+.conectate-float-center {
+  float: right;
+  position: relative;
+  left: -50%;   
+}
+.conectate-float-center > .conectate-child {
+  position: relative;
+  left: 50%;
+}
+
+.conectate-header-image {  
+  background-size: cover;
+}
+
+.conectate-nowrap {  
+  overflow: hidden;
+  text-overflow: clip;  
+  max-height: 120px;
+  min-height: 120px;
+  text-align: justify;
+}
+
+.conectate-slides {
+  overflow-x: auto;
+  overflow-y: hidden;  
+  justify-content: space-between;
+  display: -webkit-inline-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex; 
+}
+

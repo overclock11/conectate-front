@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable()
@@ -16,5 +16,6 @@ export class HomelistService {
   getTool(id) : Observable<any> {
     return this.http.get(this.url + id + '/')
   }
+
 
 }

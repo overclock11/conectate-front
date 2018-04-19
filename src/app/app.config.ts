@@ -7,8 +7,8 @@ export interface AppConfig {
 
 
 export const CONECTATE_CONFIG: AppConfig = {
-    apiEndpoint: 'http://localhost:8000/',
+    apiEndpoint: 'http://localhost:8000/api/',
     title: 'Conectate'
 };
 
-  export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
+export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');

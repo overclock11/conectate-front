@@ -1,0 +1,125 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-12  col-md-12">
+          <h2>{{title}}</h2>
+          <mat-expansion-panel expanded="true">
+            <mat-expansion-panel-header>
+                <mat-panel-title> <h5>Información básica</h5></mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold"> Nombre</h6>
+              </div>
+              <div class="col-md-4">
+                <h4>{{tool.name}}</h4>
+              </div>
+
+              <div class="col-md-2">
+                  <h6 class="font-weight-bold">Estado</h6>
+                </div>
+                <div class="col-md-4">
+                  <label>{{tool.state}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Descripción</h6>
+              </div>
+              <div class="col-md-10">
+                <label class="text-justify">{{tool.description}}</label>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                  <h6 class="font-weight-bold">Restricciones de Uso</h6>
+                </div>
+                <div class="col-md-10">
+                  <label  class="text-justify">{{tool.usageRestrictions}}</label>
+                </div>
+              </div>
+
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Tipo de Licencia</h6>
+              </div>
+              <div class="col-md-4">
+                <label>{{tool.typeLicense}}</label>
+              </div>
+
+              <div class="col-md-2">
+                  <h6 class="font-weight-bold">Versión</h6>
+                </div>
+                <div class="col-md-4">
+                  <label>{{tool.version}}</label>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Intregración LMS</h6>
+              </div>
+              <div class="col-md-10">
+                <label  class="text-justify">{{tool.integrationLms}}</label>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Url Sitio</h6>
+              </div>
+              <div class="col-md-10">
+                <label> <a href="{{tool.urlSite}}" target="_blank" >{{tool.urlSite}}</a></label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2">
+                <h6 class="font-weight-bold">Url de Descarga</h6>
+              </div>
+              <div class="col-md-10">
+                <label>{{tool.urlDownload}}</label>
+              </div>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel  expanded="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h5>Actividades/Ejemplos</h5>
+              </mat-panel-title>
+              <mat-panel-description>
+                Actividades donde fue utilizada esta herramienta
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="col-md-6 offset-md-3">
+              <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                  <span>Aqui</span>
+                </mat-toolbar-row>
+                <mat-toolbar-row>
+                  <span>va el </span>
+                  <span class="example-spacer"></span>
+                </mat-toolbar-row>
+                <mat-toolbar-row>
+                  <span> <- carrusel -></span>
+                  <span class="example-spacer"></span>
+                </mat-toolbar-row>
+              </mat-toolbar>
+            </div>
+            <mat-action-row>
+              <button mat-raised-button  color="primary" (click)="openDialog()">
+                <mat-icon aria-label="">add</mat-icon>Agregar actividad
+              </button>
+            </mat-action-row>
+
+          </mat-expansion-panel>
+      </div>
+  </div>
+</div>
+
+

@@ -1,74 +1,93 @@
+<mat-expansion-panel expanded="true">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Tutoriales
+    </mat-panel-title>  
+    <mat-panel-description>        
+      A continuación encontraras los tutoriales de la herramienta.
+    </mat-panel-description>    
+  </mat-expansion-panel-header>
+
+  <mat-action-row class="conectate-slides" >
+    <div class="conectate-float-center">
+    <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
+      <mat-card-header>      
+        <div mat-card-avatar class="conectate-header-image">
+            <mat-icon>cloud_queue</mat-icon>            
+        </div>  
+        <mat-card-title>{{tutorials.name}}</mat-card-title>        
+      </mat-card-header>      
+      <mat-card-content>
+        <p class="text-justify" class="conectate-nowrap" >           
+            {{tutorials.objective }}
+        </p>
+        
+        <a class="text-center" href="{{tutorials.url}}" target="_blank">Url Tutorial</a>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Ver mas</button>
+        <button mat-button>Editar</button>
+      </mat-card-actions>
+    </mat-card>  
+    <div class="clear"></div>
+    </div>  
+  </mat-action-row>
+
+    <mat-action-row>        
+        <button type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial"  (click)="agregaTutorial=true">
+            <mat-icon aria-label="">add</mat-icon>Agregar    
+        </button>   
+    </mat-action-row>
+
+</mat-expansion-panel>
+
+
+
 <section class="wrapper">
   <div class="inner">
-    <header class="special">
-      <h2>Tutoriales de la herramienta</h2>
+    <header class="special">    
 
       <div *ngIf="!agregaTutorial">
-        <div class="col-12" >
-          <button type="button" class="btn btn-primary" (click)="agregaTutorial=true">Agregar</button>
-        </div>
-
         <div class="col-12">
-          <div class="table-wrapper" >
-            <br/>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Url</th>
-                  <th>Commentario</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let tutorials of TutorialList">
-                  <td>{{tutorials.name}}</td>
-                  <td><a href="{{tutorials.url}}" target="_blank">{{tutorials.url}}</a></td>
-                  <td>{{tutorials.commentary}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          
         </div>
-
       </div>
 
+      <div class="container-fluid offset-md-2">
 
-      
-
-      
-
-      <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial" >
-        <div class="row">
-          <div class="col-6 col-12-xsmall">
-            <input type="text" name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre *" id="txtNombre" value="" required  #txtNombre="ngModel"
-            />
-            <div [hidden]="txtNombre.valid || txtNombre.pristine" class="alert alert-danger">
-              Nombre es requerido.
-            </div>
-          </div>
-          <div class="col-6 col-12-xsmall">
-            <input type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url *" #txtUrl="ngModel" />
-            <div [hidden]="txtUrl.valid || txtUrl.pristine" class="alert alert-danger">
-              Url es requerida.
-            </div>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-6 col-12-xsmall">
-            <br/>
-            <textarea name="txtComentario" [(ngModel)]="tutorial.commentary" ng-value="" maxlength="250" placeholder="Comentario">
-                    
-            </textarea>
-          </div>
+      <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" *ngIf="agregaTutorial">
+          
+        <div class="row">          
+            <mat-form-field class="col-12 col-md-4">
+              <input matInput type="text"  name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre" id="txtNombre" value="" required #txtNombre="ngModel"
+              />
+              <mat-error  *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+            </mat-form-field>
+         
+            <mat-form-field class="col-12 col-md-4">
+              <input matInput type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url" #txtUrl="ngModel" />              
+              <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+            </mat-form-field>          
         </div>
 
-        <div class="col-6 col-12-xsmall">
-          <br/>
-          <button type="button" class="btn btn-danger" (click)="agregaTutorial=false">Cancelar</button>
-          <button type="submit" class="btn btn-success" [disabled]="!frmTutorial.form.valid">Guardar</button>
+        <div class="row">          
+            <mat-form-field class="col-6 col-md-4">
+              <textarea matInput name="txtComentario" [(ngModel)]="tutorial.objective" ng-value="" maxlength="250" placeholder="Objetivo/Comentario">                    
+              </textarea>
+            </mat-form-field>          
         </div>
+
+        <div class="col-12 col-md-8 offset-md-4">          
+          <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+              <mat-icon aria-label="icon-button">clear</mat-icon>
+            Cancelar</button>
+          <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTutorial.form.valid" >
+              <mat-icon aria-label="icon-button">send</mat-icon>
+            Guardar</button>
+        </div>
+        
       </form>
+      </div>
 
     </header>
   </div>

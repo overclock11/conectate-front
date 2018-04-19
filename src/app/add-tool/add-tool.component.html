@@ -1,0 +1,97 @@
+<div class="container-fluid">    
+    <div class="row">
+        <div class="col-12  col-md-12">
+            <h2>{{title}}</h2>
+            <mat-expansion-panel expanded="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Información básica
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Recuerde que todos los campos con * son obligatorios.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <form (ngSubmit)="onSubmit(frmTool)" #frmTool="ngForm">
+                        <mat-form-field class="col-12 col-md-6">
+                            <input matInput type="text"  name="txtNombre" [(ngModel)]="tool.name" placeholder="Nombre"
+                                 id="txtNombre" value="" required #txtNombre="ngModel"/>
+                            <mat-error  *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="col-6 col-md-12">
+                            <textarea matInput name="txtDescription" [(ngModel)]="tool.description" ng-value="" rows="4" maxlength="350" placeholder="Descripción" required #txtDescription="ngModel">                    
+                            </textarea>
+                            <mat-error  *ngIf="txtDescription.invalid">Descripción es requerida.</mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field class="col-6 col-md-12">
+                            <textarea matInput name="txtRestriccion" [(ngModel)]="tool.usageRestrictions" ng-value="" rows="4" maxlength="350" placeholder="Restricciones de Uso" required #txtRestriccion="ngModel">                    
+                            </textarea>
+                            <mat-error  *ngIf="txtRestriccion.invalid">Restricciones de uso son requeridas.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-12 col-md-4">
+                                <input matInput type="text"  name="txtLicense" [(ngModel)]="tool.typeLicense" placeholder="Tipo de Licencia"
+                                        id="txtLicense" value="" required #txtLicense="ngModel"/>
+                                <mat-error  *ngIf="txtLicense.invalid">Tipo de licencia es requerida.</mat-error>
+                            </mat-form-field>
+                         
+                        <mat-form-field class="col-12 col-md-2">
+                            <input matInput type="text"  name="txtVersion" [(ngModel)]="tool.version" placeholder="Versión"
+                                    id="txtVersion" value="" required #txtVersion="ngModel"/>
+                            <mat-error  *ngIf="txtVersion.invalid">Versión es  requerida.</mat-error>
+                        </mat-form-field>  
+
+                        <mat-form-field class="col-12 col-md-2">
+                            <mat-select [(value)]="tool.state"  placeholder="Estado" name="cboState" required >                                
+                                <mat-option value="Borrador">Borrador</mat-option>
+                                <mat-option value="Revisado">Revisado</mat-option>
+                                <mat-option value="Publicado">Publicado</mat-option>
+                            </mat-select>
+                            
+                        </mat-form-field>
+
+                        <mat-form-field class="col-12 col-md-3">
+                            <mat-select name="cboSystem" placeholder="Sistema Operativo" [formControl]="systemSel" multiple required>
+                                <mat-option *ngFor="let system of systems" [value]="system.id">{{system.name}}</mat-option>
+                            </mat-select>
+                            <mat-error  *ngIf="systemSel.invalid">Sistema operativo es requerido.</mat-error>
+                        </mat-form-field>                                                                              
+                        
+                        <mat-form-field class="col-12 col-md-6">
+                            <input matInput type="url" name="txtUrl" [(ngModel)]="tool.urlSite" id="txtUrl" 
+                                required placeholder="Url Sitio" #txtUrl="ngModel"/>              
+                            <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-12 col-md-5">
+                            <input matInput type="url" name="txtUrlDownload" [(ngModel)]="tool.urlDownload" id="txtUrlDownload" 
+                                placeholder="Url Descarga" #txtUrlDownload="ngModel" />                    
+                        </mat-form-field>                                                                                                                            
+
+                        <mat-form-field class="col-6 col-md-12">
+                            <textarea matInput name="txtIntegrationLms" [(ngModel)]="tool.integrationLms" ng-value="" rows="4" maxlength="350" placeholder="Integración LMS"  #txtIntegrationLms="ngModel">                    
+                            </textarea>                            
+                        </mat-form-field>                            
+        
+                        <div class="row">
+                           
+                            <div class="col-12 col-md-8 offset-md-4">   
+                                    <br/>       
+                                <button mat-raised-button color="warn" type="button"  (click)="agregaTutorial=false" >
+                                    <mat-icon aria-label="icon-button">clear</mat-icon>
+                                    Cancelar</button>
+                                <button mat-raised-button color="primary" type="submit"  [disabled]="!frmTool.form.valid" >
+                                    <mat-icon aria-label="icon-button">send</mat-icon>
+                                    Guardar</button>
+                            </div>
+                        </div>                                        
+                    </form>
+            
+            </mat-expansion-panel>            
+
+        </div>
+    </div>
+</div>
+

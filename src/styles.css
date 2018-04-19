@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~summernote/dist/summernote-bs4.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+body{
+  background-image: url("assets/images/bg2.jpg");
+  background-repeat: repeat-y;
+  background-size: auto;
+}
+h1,h2,h3,h4,h5,h6,p,label,a,button,span{
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.align-center{
+ text-align: center;
+}

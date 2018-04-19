@@ -1,0 +1,11 @@
+.transparencia{
+  background-color: rgba(167, 234, 236, 0.59);
+}
+.margin-cards{
+  margin: 4px;
+}
+.home-title{
+  margin-top: 8%;
+  margin-bottom: 8%;
+  font-weight: bold;
+}

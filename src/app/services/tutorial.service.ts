@@ -8,10 +8,11 @@ import  {Tutorial}  from '../models/tutorial.models'
 
 @Injectable()
 export class TutorialService {
-  private url : string;  
-  constructor(@Inject(APP_CONFIG) config:AppConfig, private http: HttpClient) {    
+  private url : string;
+
+  constructor(@Inject(APP_CONFIG) config:AppConfig, private http: HttpClient) {
     this.url =  config.apiEndpoint + "tutorial"
-   }
+  }
 
   getTutorial(toolId: number): Observable<any>{
     return this.http.get(this.url + "?toolId="+ toolId);
