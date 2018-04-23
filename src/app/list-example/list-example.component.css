@@ -1,0 +1,49 @@
+.conectate-card{
+    width: 250px;  
+    height: 300px;  
+    margin:0 10px 10px 0;    
+    display: inline-block;
+}
+
+.mat-card-title{
+    font-weight: 600;
+    min-height: 40px;
+}
+
+.mat-card-avatar {
+    height: 20px;
+    width: 20px;    
+}
+
+.conectate-header-image {  
+    background-size: cover;
+}
+
+.mat-card-actions {
+    position: absolute;
+    bottom: 30px;
+}
+
+.conectate-float-center {
+    float: right;
+    position: relative;
+    left: -50%;   
+}
+.conectate-float-center > .conectate-child {
+    position: relative;
+    left: 50%;
+}
+
+.conectate-nowrap {  
+    overflow: hidden;
+    text-overflow: clip;  
+    max-height: 120px;
+    min-height: 120px;
+    text-align: justify;
+}
+
+.conectate-slides {
+    overflow-y: auto;  
+    justify-content: space-between;    
+    height: 328px;
+}  

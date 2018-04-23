@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params} from '@angular/router'
-import {Tutorial} from '../models/tutorial.models'
+import { Tutorial} from '../models/tutorial.models'
 import { TutorialService } from '../services/tutorial.service';
 import { NgForm } from '@angular/forms';
 import { error } from 'util';
+import { MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-tutorial',
@@ -19,50 +20,20 @@ export class TutorialComponent implements OnInit {
   public agregaTutorial: boolean = false; 
 
 
-  constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService) {
+  constructor(private ruta:ActivatedRoute, private tutorialService:TutorialService, 
+    public snackBar: MatSnackBar) {
       this.tutorial =  new Tutorial();
+      //this.TutorialList  = ELEMENT_Tutorial;
    }
 
 
-  onSubmit(f: NgForm){     
-    
-    if (f.invalid){
-      alert("Por favor ingrese los datos requeridos")
-      return;
-    }
-    
-    this.tutorial.tool =  this.IdHerramienta;
-    this.tutorialService.addTutorial(this.tutorial).subscribe(
-      result =>{
-        alert("Datos guardados correctamente");
-        this.tutorial = new Tutorial();
-        this.getTutoriales();
-        this.agregaTutorial =false;
-      }, 
-      error => {
-        alert("Error al guardar los datos.")
-        console.log(<any>error);
-      }
-      
-    );
-  }
-
-  getTutoriales (){
-    this.tutorialService.getTutorial(this.IdHerramienta).subscribe(
-      result => {
-          this.TutorialList = result;              
-      },
-      error => {
-        console.log(<any>error);
-      }
-    );
-  }
+  
+  
 
   ngOnInit() {
-    this.ruta.params.subscribe( parametro=> {
-      this.IdHerramienta=parametro['id'];      
-    })    
-    this.getTutoriales();
+  
   }
 
 }
+
+

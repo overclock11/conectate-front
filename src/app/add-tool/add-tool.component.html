@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12  col-md-12">
+            <h2>{{title}}</h2>
+            <mat-expansion-panel expanded="true" hideToggle="true" disabled="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Información básica
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Recuerde que todos los campos con * son obligatorios.
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <form (ngSubmit)="onSubmit(frmTool)" #frmTool="ngForm" class="row">
+                    <mat-form-field class="col-12 col-md-6">
+                        <input matInput type="text" name="txtNombre" [(ngModel)]="tool.name" placeholder="Nombre" id="txtNombre" value="" required
+                            #txtNombre="ngModel" />
+                        <mat-error *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-6">
+                        <input matInput type="text" name="txtKeyWords" [(ngModel)]="tool.key_words" placeholder="Palabras Claves" id="txtKeyWords"
+                            value="" required #txtKeyWords="ngModel" />
+                        <mat-error *ngIf="txtKeyWords.invalid">Palabras clave es requerido.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-12">
+                        <textarea matInput name="txtDescription" [(ngModel)]="tool.description" ng-value="" rows="4" maxlength="350" placeholder="Descripción"
+                            required #txtDescription="ngModel">                    
+                            </textarea>
+                        <mat-error *ngIf="txtDescription.invalid">Descripción es requerida.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-12">
+                        <textarea matInput name="txtRestriccion" [(ngModel)]="tool.usage_restrictions" ng-value="" rows="4" maxlength="350" placeholder="Restricciones de Uso"
+                            required #txtRestriccion="ngModel">                    
+                            </textarea>
+                        <mat-error *ngIf="txtRestriccion.invalid">Restricciones de uso son requeridas.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-4">
+                        <input matInput type="text" name="txtLicense" [(ngModel)]="tool.license_type" placeholder="Tipo de Licencia" id="txtLicense"
+                            value="" required #txtLicense="ngModel" />
+                        <mat-error *ngIf="txtLicense.invalid">Tipo de licencia es requerida.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-2">
+                        <input matInput type="text" name="txtVersion" [(ngModel)]="tool.version" placeholder="Versión" id="txtVersion" value="" required
+                            #txtVersion="ngModel" />
+                        <mat-error *ngIf="txtVersion.invalid">Versión es requerida.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-2">
+                        <mat-select id="state" [(value)]="tool.state" placeholder="Estado" name="cboState" required>
+                            <mat-option id="draft" value="Borrador">Borrador</mat-option>
+                            <mat-option id="review" value="Revisado">Revisado</mat-option>
+                            <mat-option id="publish" value="Publicado">Publicado</mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-3">
+                        <mat-select id="SO" name="cboSystem" placeholder="Sistema Operativo" [formControl]="systemSel" multiple >
+                            <mat-option *ngFor="let system of systems" [value]="system.id">{{system.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="systemSel.invalid">Sistema operativo es requerido.</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-6">
+                        <input matInput type="url" name="txtUrl" [(ngModel)]="tool.url_site" id="txtUrl" required placeholder="Url Sitio" #txtUrl="ngModel"
+                        />
+                        <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-6">
+                        <input matInput type="url" name="txtUrlDownload" [(ngModel)]="tool.url_download" id="txtUrlDownload" placeholder="Url Descarga"
+                            #txtUrlDownload="ngModel" />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 col-md-12">
+                        <textarea matInput name="txtIntegrationLms" [(ngModel)]="tool.integration_lms" ng-value="" rows="4" maxlength="350" placeholder="Integración LMS"
+                            #txtIntegrationLms="ngModel" id="txtIntegrationLms"></textarea>
+                    </mat-form-field>
+
+                    
+
+                    <div class="col-12 col-md-4 offset-md-8 conectate-button-row">
+                        <br/>
+                        <button id="Cancelar" mat-raised-button color="warn" type="button" [routerLink]="['/home']">
+                            <mat-icon aria-label="icon-button">clear</mat-icon>
+                            Cancelar</button>
+                        <button id="btnGuardar" mat-raised-button color="primary" type="submit" [disabled]="!frmTool.form.valid">
+                            <mat-icon aria-label="icon-button">send</mat-icon>
+                            Guardar</button>
+                    </div>
+                    
+                </form>
+
+            </mat-expansion-panel>
+
+        </div>
+    </div>
+</div>

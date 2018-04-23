@@ -1,0 +1,41 @@
+<mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title><h5>Actividades/Ejemplos</h5>
+      </mat-panel-title>
+      <mat-panel-description>
+          Actividades donde fue utilizada esta herramienta.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-action-row class="conectate-slides">
+      <div class="conectate-float-center" >
+        <mat-card class="conectate-card float-left conectate-child" *ngFor="let example of exampleList">
+          <mat-card-header>
+            <div mat-card-avatar class="conectate-header-image">
+              <mat-icon>cloud_queue</mat-icon>
+            </div>
+            <mat-card-title>{{example.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="text-justify conectate-nowrap">
+              {{example.description }}
+            </p>
+
+            <p class="text-center" >{{example.instructions}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="showExample(example)">Ver mas</button>
+            <button mat-button (click)="editExample(example)">Editar</button>
+          </mat-card-actions>
+        </mat-card>
+        <div class="clear"></div>
+      </div>
+    </mat-action-row>
+
+    <mat-action-row>
+        <button id="Add" mat-raised-button color="primary" (click)="openDialog()">
+          <mat-icon aria-label="">add</mat-icon>Agregar actividad
+        </button>
+    </mat-action-row>
+
+  </mat-expansion-panel>

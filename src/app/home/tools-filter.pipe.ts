@@ -11,7 +11,7 @@ export class ToolsFilterPipe implements PipeTransform {
       return toolsObject;
     }
     let filterByName: any[] = toolsObject.filter(item => item.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
-    let filterByKeyWords: any[] = toolsObject.filter(item => item.keyWords.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+    let filterByKeyWords: any[] = toolsObject.filter(item => item.key_words.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
 
     if(filterByName.toString() === '' && filterByKeyWords.toString() === ''){
       return [];

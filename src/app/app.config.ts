@@ -7,8 +7,8 @@ export interface AppConfig {
 
 
 export const CONECTATE_CONFIG: AppConfig = {
-    apiEndpoint: 'http://localhost:8000/',
+    apiEndpoint: 'https://contectate-test.herokuapp.com/api/',
     title: 'Conectate'
 };
 
-  export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
+export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');

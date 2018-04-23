@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h2>{{action}} Tutorial</h2>
+      <br/>
+    </div>
+
+    <form (ngSubmit)="onSubmit(frmTutorial)" #frmTutorial="ngForm" class="col-md-12 col-12" >
+      <div class="row">
+        <mat-form-field class="col-12 col-md-12">
+          <input matInput type="text" name="txtNombre" [(ngModel)]="tutorial.name" placeholder="Nombre" id="txtNombre" value="" required
+            #txtNombre="ngModel" [disabled]="!allowEdit" />
+          <mat-error *ngIf="txtNombre.invalid">Nombre es requerido.</mat-error>
+        </mat-form-field>        
+      </div>
+      <div class="row">
+        <mat-form-field class="col-12 col-md-12">
+          <input matInput type="url" name="txtUrl" [(ngModel)]="tutorial.url" id="txtUrl" required placeholder="Url" #txtUrl="ngModel"
+            [disabled]="!allowEdit" />
+          <mat-error *ngIf="txtUrl.invalid">Url es requerida</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field class="col-12 col-md-12">
+          <textarea matInput name="txtObjetivo" [(ngModel)]="tutorial.objective" rows="4" ng-value="" maxlength="250" 
+              placeholder="Objetivo/Comentario" [disabled]="!allowEdit">                    
+            </textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="col-12 col-md-12 text-right">
+        <button mat-raised-button color="warn" type="button" [mat-dialog-close]="true">
+          <mat-icon aria-label="icon-button">clear</mat-icon>
+          Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!frmTutorial.form.valid" *ngIf="allowEdit">
+          <mat-icon aria-label="icon-button">send</mat-icon>
+          Guardar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

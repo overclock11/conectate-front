@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>{{data.title}}</h1>
+  </div>
+  <div class="col-md-12" [hidden]="!hideContent">
+    <form #exampleForm="ngForm">
+      <mat-form-field class="col-md-5" >
+        <input matInput type="text" required #name name="name" id="name" [(ngModel)]="newExample.name" value="" [disabled]="editable" placeholder="Nombre"/>
+      </mat-form-field>
+      <mat-form-field class="col-md-6">
+        <mat-select #discipline placeholder="Disciplina" [disabled]="editable" required [(ngModel)]="newExample.discipline"
+                    name="discipline">
+          <mat-option>Seleccione</mat-option>
+          <mat-option *ngFor="let discipline of disciplines" [value]="discipline.id">
+            {{discipline.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-md-5">
+        <textarea [disabled]="editable" #description  required matInput placeholder="Descripción" name="description" [(ngModel)]="newExample.description"></textarea>
+      </mat-form-field>
+      <mat-form-field class="col-md-6">
+        <mat-select [disabled]="editable" #pedagogicStrategy placeholder="Estrategia pedagogica" [(ngModel)]="newExample.pedagogic_strategy"
+                    name="pedagogicStrategy" required>
+          <mat-option>Seleccione</mat-option>
+          <mat-option *ngFor="let strategy of pegadogicObject" [value]="strategy.id">
+            {{strategy.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="col-md-12">
+        <textarea matInput [disabled]="editable" #instructions placeholder="Instrucciones" name="Instrucciones"
+                  [(ngModel)]="newExample.instructions" required></textarea>
+      </mat-form-field>
+      <form [formGroup]="invoiceForm">
+        <fieldset class="col-md-12 resource-table" formArrayName="itemRows">
+          <legend>Recursos</legend>
+          <div class="col-md-12" *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
+            <mat-form-field  class="col-md-5">
+              <input matInput  type="text" name="name" id="nombre" formControlName="name"
+                     placeholder="Nombre"/>
+            </mat-form-field>
+            <mat-form-field  class="col-md-5">
+              <input matInput type="text" name="Enlace" id="Enlace" formControlName="link"
+                     placeholder="Enlace"/>
+            </mat-form-field>
+            <button mat-mini-fab color="accent" [disabled]="editable" (click)="deleteRow(i)"><i class="fas fa-trash"></i></button>
+          </div>
+        </fieldset>
+      </form>
+      <div class="col-md-12">
+        <button mat-raised-button color="primary" [disabled]="editable" (click)="addItem()">Agregar recurso</button>
+      </div>
+      <br><br>
+    </form>
+  </div>
+  <div class="col-md-12" [hidden]="hideContent">
+    <br><br>
+    <p>
+      {{errorMessage}}
+    </p>
+    <br><br>
+  </div>
+  <div class="col-md-12">
+    <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
+    <br>
+    <button id ="Guardar" mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
+    <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
+  </div>
+</div>
+
+

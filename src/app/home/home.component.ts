@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HomelistService} from "../services/homelist.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,19 +12,69 @@ export class HomeComponent implements OnInit {
   public toolsObject:any[]=[];
   public filterargs: String ="";
   public strategyFilter: String ="";
-  constructor(public toolList:HomelistService) {
+  public visibilityHome: Boolean;
+
+  constructor(public toolList: HomelistService,private router: Router) {
   }
 
   ngOnInit() {
-    this.toolList.getTools().subscribe(
-      result => {
+    if(this.router.url==='/home'){
+      //mostrar datos del home
+      this.visibilityHome = true;
+      this.toolList.getTools().subscribe(
+        result => {
           this.toolsObject = result;
+          this.toolsObject = this.toolsObject.filter((currentElement) => {
+            if(currentElement.state.toLowerCase() === "publicado"){
+              return currentElement;
+            }
+          });
           console.log(this.toolsObject);
-      },
-      error => {
-        console.log(<any>error);
-      }
-    );
+        },
+        error => {
+          console.log(<any>error);
+        }
+      );
+    }
+    else if(this.router.url==='/tool/lista'){
+      // traer las que tienen estado por aprobar
+      this.visibilityHome = false;
+      sessionStorage.setItem('login', '{"user":"Tony","id":"12"}');
+      this.toolList.getTools().subscribe(
+        result => {
+          this.toolsObject = result;
+          this.toolsObject = this.toolsObject.filter((currentElement) => {
+            if(currentElement.state.toLowerCase() === "revisado"){
+              return currentElement;
+            }
+          });
+          console.log(this.toolsObject);
+        },
+        error => {
+          console.log(<any>error);
+        }
+      );
+    }
+
+    else{
+      // traer las que tienen estado por aprobar
+      this.visibilityHome = false;
+      sessionStorage.setItem('accedido', '{"user":"Camilo","id":"2"}');
+      this.toolList.getTools().subscribe(
+        result => {
+          this.toolsObject = result;
+          this.toolsObject = this.toolsObject.filter((currentElement) => {
+            if(currentElement.state.toLowerCase() === "borrador"){
+              return currentElement;
+            }
+          });
+          console.log(this.toolsObject);
+        },
+        error => {
+          console.log(<any>error);
+        }
+      );
+    }
   }
 
   filterData(filter,keyCode){
@@ -57,5 +108,4 @@ export class HomeComponent implements OnInit {
       );
     }
   }
-
 }

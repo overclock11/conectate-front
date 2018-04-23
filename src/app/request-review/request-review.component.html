@@ -1,0 +1,123 @@
+
+<div class="container-fluid">
+
+
+  <div class="row bar-admin" [hidden]="!admin">
+    <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
+    <div class="col-md-2">
+      <mat-checkbox [(ngModel)]="disabled">Revisado</mat-checkbox>
+    </div>
+    <div class="col-md-2">
+      <button mat-raised-button color="primary" [disabled]="!disabled" (click)="tool.state='Revisado';publishTool()" >Solicitar Aprobacion</button>
+    </div>
+    <div class="col-md-12">
+      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
+      <p [hidden]="errorMessage">La herramienta sera revisada por un miembro autorizado.</p>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="clearfix"></div>
+    <div class="col-12  col-md-12">
+      <h2>{{title}}</h2>
+
+      <mat-accordion class="example-headers-align" multi="true">
+
+        <mat-expansion-panel expanded="true" hideToggle="true" disabled="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h5>Información básica</h5>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold"> Nombre</h6>
+            </div>
+            <div class="col-md-4">
+              <h4>{{tool.name}}</h4>
+            </div>
+
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Estado</h6>
+            </div>
+            <div class="col-md-4">
+              <label>{{tool.state}}</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Descripción</h6>
+            </div>
+            <div class="col-md-10">
+              <label class="text-justify">{{tool.description}}</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Restricciones de Uso</h6>
+            </div>
+            <div class="col-md-10">
+              <label class="text-justify">{{tool.usage_restrictions}}</label>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Tipo de Licencia</h6>
+            </div>
+            <div class="col-md-4">
+              <label>{{tool.license_type}}</label>
+            </div>
+
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Versión</h6>
+            </div>
+            <div class="col-md-4">
+              <label>{{tool.version}}</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Intregración LMS</h6>
+            </div>
+            <div class="col-md-10">
+              <label class="text-justify">{{tool.integration_lms}}</label>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Url Sitio</h6>
+            </div>
+            <div class="col-md-10">
+              <label>
+                <a href="{{tool.urlSite}}" target="_blank">{{tool.url_site}}</a>
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+              <h6 class="font-weight-bold">Url de Descarga</h6>
+            </div>
+            <div class="col-md-10">
+              <label>{{tool.url_download}}</label>
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <app-list-example [idTool]="idTool"></app-list-example>
+        <br/>
+        <app-list-tutorial [idTool]="idTool"></app-list-tutorial>
+
+      </mat-accordion>
+
+    </div>
+  </div>
+</div>

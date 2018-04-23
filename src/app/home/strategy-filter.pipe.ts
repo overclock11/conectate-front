@@ -10,7 +10,7 @@ export class StrategyFilterPipe implements PipeTransform {
     if (!toolsObject || !filter) {
       return toolsObject;
     }
-    return toolsObject.filter(item => item.technicalDetails.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1);
+    return toolsObject.filter(item => item.operative_systems.toLocaleLowerCase().indexOf(filter.toLocaleLowerCase()) !== -1);
   }
 
 }

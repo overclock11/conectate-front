@@ -1,0 +1,11 @@
+<h3 mat-dialog-title><mat-icon aria-label="icon-button" class="text-success">done</mat-icon> 
+  Herramienta creada correctamente</h3>
+<div mat-dialog-content>
+  
+  <p>Nombre: {{data.name}}</p>
+  <p>¿Desea seguir agregando mas información ?</p>
+</div>
+<div mat-dialog-actions class="float-right">
+  <button mat-button (click)="redirectHome()">No</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Sí</button>
+</div>
