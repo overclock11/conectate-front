@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { AddTutorialComponent } from '../add-tutorial/add-tutorial.component';
 
-
 @Component({
   selector: 'app-list-tutorial',
   providers : [TutorialService],
@@ -27,14 +26,14 @@ export class ListTutorialComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTutoriales();
-    this.widthMaxRow = this.TutorialList.length * 250;
+    this.getTutoriales();            
   }
 
   getTutoriales () {
     this.tutorialService.getTutorials(this.idTool).subscribe(
       result => {        
-          this.TutorialList = result;          
+          this.TutorialList = result;    
+          this.widthMaxRow = this.TutorialList.length * 270;      
       },
       error => {
         console.log(<any>error);
@@ -79,6 +78,13 @@ export class ListTutorialComponent implements OnInit {
     });
   }
 
+  nextButton():void{
+    document.getElementById('contenedor').scrollLeft += 300;
+  }
+
+  previousButton(): void{
+    document.getElementById('contenedor').scrollLeft -= 300;
+  }
 }
 
 const ELEMENT_Tutorial: Tutorial[] = [
