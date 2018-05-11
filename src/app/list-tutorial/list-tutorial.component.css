@@ -47,3 +47,212 @@
     justify-content: space-between;    
     height: 328px;
   }  
+
+
+@media (min-width: 992px) {
+    /* line 58, coronita_comp/_c-grid.sass */
+  .conectate-container {
+    width: 970px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;    
+  }
+
+  .conectate-container::before,
+  .conectate-container::after{
+    content: " ";
+    display: table;
+  }
+}
+
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* line 16, slick/slick.sass */
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+  
+}
+/* line 23, slick/slick.sass */
+.slick-list:focus {
+  outline: none;
+}
+/* line 27, slick/slick.sass */
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/* line 31, slick/slick.sass */
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 39, slick/slick.sass */
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+ 
+}
+/* line 47, slick/slick.sass */
+.slick-track:before, .slick-track:after {
+  content: "";
+  display: table;
+}
+/* line 53, slick/slick.sass */
+.slick-track:after {
+  clear: both;
+}
+/* line 57, slick/slick.sass */
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+/* line 60, slick/slick.sass */
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+/* line 64, slick/slick.sass */
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+/* line 67, slick/slick.sass */
+.slick-slide img {
+  display: block;
+}
+/* line 70, slick/slick.sass */
+.slick-slide.slick-loading img {
+  display: none;
+}
+/* line 76, slick/slick.sass */
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+/* line 80, slick/slick.sass */
+.slick-initialized .slick-slide {
+  display: block;
+}
+/* line 84, slick/slick.sass */
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+/* line 88, slick/slick.sass */
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+
+/* line 93, slick/slick.sass */
+.slick-arrow.slick-hidden {
+  display: none;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  height: 36px;
+  width: 36px;
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  padding: 0;
+  border: none;
+  outline: none;
+}
+/* line 81, slick/slick-theme.sass */
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: transparent;
+}
+/* line 85, slick/slick-theme.sass */
+.slick-prev:hover:before, .slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+/* line 89, slick/slick-theme.sass */
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+/* line 92, slick/slick-theme.sass */
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  color: white;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 103, slick/slick-theme.sass */
+.slick-prev {
+  left: 0px;
+  z-index: 11111;
+}
+/* line 106, slick/slick-theme.sass */
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: 0px;
+}
+/* line 112, slick/slick-theme.sass */
+[dir="rtl"] .slick-prev:before {
+  content: "";
+}
+
+/* line 118, slick/slick-theme.sass */
+.slick-next {
+  right: 0px;
+  z-index: 11111;
+}
+/* line 121, slick/slick-theme.sass */
+[dir="rtl"] .slick-next {
+  left: 0px;
+  right: auto;
+}
+/* line 127, slick/slick-theme.sass */
+[dir="rtl"] .slick-next:before {
+  content: "";
+}

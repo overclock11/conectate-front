@@ -7,7 +7,49 @@
     </mat-panel-description>
   </mat-expansion-panel-header>
 
-  <mat-action-row class="conectate-slides">
+  <mat-action-row>
+    <div class="conectate-container">
+      <div class="slider responsive  slick-initialized slick-slider">
+        <button class="slick-prev pull-left slick-arrow " type="button" style="display: block;" aria-label="Previous" (click)="previousButton()">
+            <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 36px">keyboard_arrow_left</mat-icon>            
+          </button>
+          <div  id="contenedor" class="slick-list draggable">
+            <div class="slick-track" [ngStyle]="{'width': widthMaxRow + 'px' }"   style="opacity: 1; transform: translate3d( 2%, 0px, 0px);">
+
+                <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
+                    <mat-card-header>
+                      <div mat-card-avatar class="conectate-header-image">
+                        <mat-icon>cloud_queue</mat-icon>
+                      </div>
+                      <mat-card-title>{{tutorials.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <p class="text-justify" class="conectate-nowrap">
+                        {{tutorials.objective }}
+                      </p>
+            
+                      <a class="text-center" href="{{tutorials.url}}" target="_blank">Url Tutorial</a>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button (click)="showTutorial(tutorials)">Ver mas</button>
+                      <button mat-button (click)="editTutorial(tutorials)">Editar</button>
+                    </mat-card-actions>
+                  </mat-card>
+                  <div class="clear"></div>
+
+              <!--<div class="col-sm-3 slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.bbva.com.co/personas/seguros/seguros-deudores/incendio-y-terremoto/" target="_blank" tabindex="-1"><i class="iconcoronita-couple"></i><h5>Seguro de Incendio y terremoto</h5></a></div>
+              <div class="col-sm-3 slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/remodelacion" target="_blank" tabindex="-1"><i class="iconcoronita-color"></i><h5>Remodelación</h5></a></div>
+              <div class="col-sm-3 slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaHogar" target="_blank" tabindex="-1"><i class="iconcoronita-money-exchange"></i><h5>Cuenta Hogar</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaAFC" target="_blank" tabindex="-1"><i class="iconcoronita-location-explore"></i><h5>Cuenta AFC</h5></a></div><div class="col-sm-3 slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 235px;" tabindex="0"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/productos" target="_blank" tabindex="0"><i class="iconcoronita-home"></i><h5>Crédito Hipotecario</h5></a></div><div class="col-sm-3 slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 235px;" tabindex="0"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/leasingHabitacional" target="_blank" tabindex="0"><i class="iconcoronita-loan"></i><h5>Leasing Habitacional</h5></a></div><div class="col-sm-3 slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 235px;" tabindex="0"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cesionHipotecaria" target="_blank" tabindex="0"><i class="iconcoronita-portfolio"></i><h5>Cesión Hipotecaria</h5></a></div><div class="col-sm-3 slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 235px;" tabindex="0"><a href="https://www.bbvaseguros.com.co/seguros/hogar-y-bienes/hogar-contenidos/" target="_blank" tabindex="0"><i class="iconcoronita-medical-kit"></i><h5>Seguro Hogar</h5></a></div><div class="col-sm-3 slick-slide" data-slick-index="4" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.bbva.com.co/personas/seguros/seguros-deudores/incendio-y-terremoto/" target="_blank" tabindex="-1"><i class="iconcoronita-couple"></i><h5>Seguro de Incendio y terremoto</h5></a></div><div class="col-sm-3 slick-slide" data-slick-index="5" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/remodelacion" target="_blank" tabindex="-1"><i class="iconcoronita-color"></i><h5>Remodelación</h5></a></div><div class="col-sm-3 slick-slide" data-slick-index="6" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaHogar" target="_blank" tabindex="-1"><i class="iconcoronita-money-exchange"></i><h5>Cuenta Hogar</h5></a></div><div class="col-sm-3 slick-slide" data-slick-index="7" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaAFC" target="_blank" tabindex="-1"><i class="iconcoronita-location-explore"></i><h5>Cuenta AFC</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/productos" target="_blank" tabindex="-1"><i class="iconcoronita-home"></i><h5>Crédito Hipotecario</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/leasingHabitacional" target="_blank" tabindex="-1"><i class="iconcoronita-loan"></i><h5>Leasing Habitacional</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cesionHipotecaria" target="_blank" tabindex="-1"><i class="iconcoronita-portfolio"></i><h5>Cesión Hipotecaria</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.bbvaseguros.com.co/seguros/hogar-y-bienes/hogar-contenidos/" target="_blank" tabindex="-1"><i class="iconcoronita-medical-kit"></i><h5>Seguro Hogar</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.bbva.com.co/personas/seguros/seguros-deudores/incendio-y-terremoto/" target="_blank" tabindex="-1"><i class="iconcoronita-couple"></i><h5>Seguro de Incendio y terremoto</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/remodelacion" target="_blank" tabindex="-1"><i class="iconcoronita-color"></i><h5>Remodelación</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="14" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaHogar" target="_blank" tabindex="-1"><i class="iconcoronita-money-exchange"></i><h5>Cuenta Hogar</h5></a></div><div class="col-sm-3 slick-slide slick-cloned" data-slick-index="15" aria-hidden="true" style="width: 235px;" tabindex="-1"><a href="https://www.viviendaonline.bbva.com.co/vonline/pv_publico/app/cuentaAFC" target="_blank" tabindex="-1"><i class="iconcoronita-location-explore"></i><h5>Cuenta AFC</h5></a></div> -->
+            </div>
+          </div>
+        <button class="slick-next pull-right slick-arrow" type="button" style="display: block;" (click)="nextButton()">
+            <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 36px">keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </mat-action-row>
+
+ <!-- <mat-action-row class="conectate-slides">
     <div class="conectate-float-center" >
       <mat-card class="conectate-card float-left conectate-child" style="background-color: rgb(167, 240, 243);" *ngFor="let tutorials of TutorialList">
         <mat-card-header>
@@ -30,7 +72,7 @@
       </mat-card>
       <div class="clear"></div>
     </div>
-  </mat-action-row>
+  </mat-action-row> -->
 
   <mat-action-row>
     <button id="btnAgregarTutorial" type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">
