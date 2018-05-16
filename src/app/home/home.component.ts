@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HomelistService} from "../services/homelist.service";
 import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   public strategyFilter: String ="";
   public visibilityHome: Boolean;
 
-  constructor(public toolList: HomelistService,private router: Router) {
+  constructor(public toolList: HomelistService,private router: Router,public snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -107,5 +108,8 @@ export class HomeComponent implements OnInit {
         }
       );
     }
+  }
+  print(checked){
+    console.log(checked);
   }
 }
