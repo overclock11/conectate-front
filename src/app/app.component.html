@@ -1,18 +1,24 @@
 <mat-toolbar color="primary">
-    <button  mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon class="conectate-icon">menu</mat-icon>
-    </button>
-    <span class="conectate-spacer"></span>
-    <span>Conecta-Te</span>
-</mat-toolbar>
+    <ul class="nav">
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
 
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
+      <li class="nav-item" >
+        <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: white; text-decoration: none" >Cerrar sesión</a>
+      </li>
+    </ul>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<!--
 <mat-sidenav-container class="example-container">
     <mat-sidenav mode="side" #sidenav opened="true">
         <ul class="nav">
             <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
             <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
             <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
-            
+
             <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
             <li class="nav-item" >
                 <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: #007bff;" >Cerrar sesión</a>
@@ -20,9 +26,9 @@
         </ul>
     </mat-sidenav>
     <mat-sidenav-content>
-        <router-outlet></router-outlet>
+
     </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container>-->
 
 
 
