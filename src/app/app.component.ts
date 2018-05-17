@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import { browser } from 'protractor';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,24 +9,26 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 })
 export class AppComponent {
   title = 'app';
-
+  private sesion: Boolean = false;
   private git: Boolean = false;
-  private active: Boolean = true;
+  private login: Boolean = false;
   constructor(private route: ActivatedRoute, public router: Router) {
   }
 
-  showSideVar(){
-
-    let asesor= sessionStorage.getItem('accedido');
-    if (asesor) {
-      this.git = true;
-    }
-
+  openMenu(){
+    document.getElementById("btnmenu").click();
   }
+
+  openToolMenu(){
+    document.getElementById("btnbuild").click();
+  }
+
   closeSession(){
     sessionStorage.clear();
     this.git=false;
+    this.sesion=false;
+    this.router.navigate(['/home']);
     document.getElementById("btnmenu").setAttribute("disabled", "disabled");
-    this.router.navigate(['home']);
+   
   }
 }

@@ -1,33 +1,42 @@
-<mat-toolbar class="toolbar" color="primary">
-    
-    <span>Conecta-Te</span>
-    <span class="conectate-spacer"></span>
-    <button mat-icon-button id="btnmenu" [disabled]="!disabled"  (click)="sidenav.toggle()">
-        <mat-icon class="conectate-icon" [hidden]="!git">build</mat-icon>
-    </button>
-    <a class="nav-link1" id="inicio" [routerLink]="['/home']" >Inicio</a>
-    <button mat-button  id="menu1" class="conectate-menu" [matMenuTriggerFor]="miembro">¿Eres miembro conectate?</button>
-
-    <mat-menu id="menu" class="conectate-menu2" #miembro="matMenu">
-        <span mat-menu-item class="nav-link" [routerLink]="['tool/lista']">Ingresa Admin</span>
-        <span mat-menu-item class="nav-link" (click)="git='true'; disabled='true'" [routerLink]="['tool/drafts']">Ingreso Asesor</span>
-        <span mat-menu-item class="nav-link" (click)="disabled='false'; closeSession()">Cerrrar sesión</span>
-    </mat-menu>
-
+<mat-toolbar color="primary">
+        <span>Conecta-Te</span>
+        <span class="conectate-spacer"></span>
+        <button  id="btnbuild" mat-icon-button [hidden]="!git" (mouseenter)="openToolMenu()" [matMenuTriggerFor]="addtool">
+                <mat-icon class="conectate-icon">build</mat-icon>
+        </button>
+        <mat-menu id="menu "#addtool="matMenu">
+                <span mat-menu-item class="nav-link" [routerLink]="['/tool']">Agregar Herramienta</span>
+        </mat-menu>
+        <a class="nav-link1" [routerLink]="['/home']" >Inicio</a>
+        <button mat-button  id="btnmenu" class="conectate-menu" *ngIf="!sesion" (mouseenter)="openMenu()" [matMenuTriggerFor]="miembro">¿Eres miembro conectate?</button>
+        <mat-menu id="menu "#miembro="matMenu">
+            <span mat-menu-item class="nav-link" (click)="sesion='true'" [routerLink]="['tool/lista']">Ingresa Admin</span>
+            <span mat-menu-item class="nav-link" (click)="git='true'; disabled='true'; sesion='true'" [routerLink]="['tool/drafts']">Ingreso Asesor</span>
+        </mat-menu>
+        <button mat-button id="btnmenu" class="conectate-menu" *ngIf="sesion" (mouseenter)="openMenu()" [matMenuTriggerFor]="salir">Carlos</button>
+        <mat-menu id="menu "#salir="matMenu">
+            <span mat-menu-item class="nav-link" (click)="closeSession()" >Cerrrar sesión</span>
+        </mat-menu>
 </mat-toolbar>
-
+<router-outlet></router-outlet>
+<!--
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" [hidden]="!git" #sidenav opened="false">
+    <mat-sidenav mode="side" #sidenav opened="true">
         <ul class="nav">
-           
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
             <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
-           
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
+
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
+            <li class="nav-item" >
+                <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: #007bff;" >Cerrar sesión</a>
+              </li>
         </ul>
     </mat-sidenav>
     <mat-sidenav-content>
-        <router-outlet></router-outlet>
+
     </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container>-->
 
 
 

@@ -29,9 +29,9 @@ mat-sidenav{
 }
 
 
-.conectate-menu:hover , mat-menu:hover span.conectate-menu2{
+.conectate-menu:hover , #miembro span.conectate-menu2{
 
-    color:blue;
+    color:white;
 }
 
 .caja-menu {
@@ -46,6 +46,3 @@ mat-sidenav{
 .mat-menu-item{
     color:blue;
 }
-
-
-  

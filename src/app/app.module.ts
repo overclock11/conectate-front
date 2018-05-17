@@ -5,13 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { RichtextComponent } from './richtext/richtext.component';
 import {app_rountig} from './app.routes';
 import { ToolsFilterPipe } from './home/tools-filter.pipe';
-import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
 import {HttpClientModule} from '@angular/common/http';
-import { EditToolComponent } from './tools/edit/editTool.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
 import { APP_CONFIG, CONECTATE_CONFIG } from './app.config';
 
@@ -22,7 +19,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -46,7 +42,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 
-
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
@@ -64,9 +59,6 @@ import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.com
     AppComponent,
     HomeComponent,
     ToolsFilterPipe,
-    StrategyFilterPipe,
-    RichtextComponent,
-    EditToolComponent,
     TutorialComponent,
     AddToolComponent,
     LimitOfTextPipe,
