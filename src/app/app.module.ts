@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { RichtextComponent } from './richtext/richtext.component';
 import {app_rountig} from './app.routes';
 import { ToolsFilterPipe } from './home/tools-filter.pipe';
-import { StrategyFilterPipe } from './home/strategy-filter.pipe';
 
 import {HttpClientModule} from '@angular/common/http';
 import { EditToolComponent } from './tools/edit/editTool.component';
@@ -63,7 +62,6 @@ import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.com
     AppComponent,
     HomeComponent,
     ToolsFilterPipe,
-    StrategyFilterPipe,
     RichtextComponent,
     EditToolComponent,
     TutorialComponent,
