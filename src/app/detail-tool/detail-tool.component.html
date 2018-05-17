@@ -1,35 +1,5 @@
 <div class="container-fluid">
 
-
-  <div class="row bar-admin" [hidden]="!git">
-    <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
-    <div class="col-md-2">
-      <mat-checkbox [(ngModel)]="disabled">Revisado</mat-checkbox>
-    </div>
-    <div class="col-md-2">
-      <button mat-raised-button color="primary" [disabled]="!disabled" (click)="tool.state='Revisado';reviewTool()" >Solicitar Aprobacion</button>
-    </div>
-    <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">La herramienta sera revisada por un miembro autorizado.</p>
-    </div>
-  </div>  
-
-  <div class="row bar-admin" [hidden]="!admin">
-    <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
-    <div class="col-md-2">
-      <mat-checkbox id="Approve" [(ngModel)]="disabled">Aprobar</mat-checkbox>
-    </div>
-    <div class="col-md-2">
-      <button mat-raised-button color="primary" id="Publicar" [disabled]="!disabled" (click)="tool.state='Publicado';publishTool()" >Publicar</button>
-    </div>
-    <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">Ocurrio un error al publicar la herramienta.</p>
-    </div>
-  </div>  
-
-
   <div class="row">
     <div class="clearfix"></div>
     <div class="col-12  col-md-12">
@@ -135,4 +105,28 @@
 
     </div>
   </div>
+
+  <div class="row bar-admin" [hidden]="!git">
+    <div class="col-md-8">¿Se encuentra listo para publicar? Envía tu concepto de Verificado haciendo click en el boton</div>
+    <br />
+    <div class="col-md-2">
+      <button mat-raised-button (click)="tool.state='Revisado';reviewTool()" >Verificado</button>
+    </div>
+    <div class="col-md-12">
+      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
+      <p [hidden]="errorMessage">La herramienta sera revisada por un miembro autorizado.</p>
+    </div>
+  </div>  
+
+  <div class="row bar-admin" [hidden]="!admin">
+    <div class="col-md-8">¿Se encuentra listo para publicar? Envía tu concepto y publicalo haciendo click en el boton</div>
+    <div class="col-md-2">
+      <button mat-raised-button id="Publicar" (click)="tool.state='Publicado';publishTool()" >Publicar</button>
+    </div>
+    <div class="col-md-12">
+      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
+      <p [hidden]="errorMessage">Ocurrio un error al publicar la herramienta.</p>
+    </div>
+  </div>  
+
 </div>

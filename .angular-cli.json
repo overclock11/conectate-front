@@ -23,6 +23,7 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/parallax-js/dist/parallax.min.js",
         "../src/assets/js/main.js"
       ],
       "environmentSource": "environments/environment.ts",

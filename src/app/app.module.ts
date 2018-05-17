@@ -46,6 +46,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 
+
 import 'hammerjs';
 import { AddToolComponent } from './add-tool/add-tool.component';
 import { LimitOfTextPipe } from './home/limit-of-text.pipe';
@@ -103,6 +104,7 @@ import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.com
     MatCardModule,
     MatExpansionModule,
     MatTabsModule,
+    MatButtonModule,
     MatButtonToggleModule,
     MatIconModule,
     MatProgressSpinnerModule,
