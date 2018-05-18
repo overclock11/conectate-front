@@ -1,4 +1,6 @@
 <div class="container-fluid">
+
+  <!--
   <div class="row"  [hidden]="!visibilityHome">
     <div class="col-md-6 offset-md-3">
       <h1 class="home-title" >Conectate</h1>
@@ -7,6 +9,8 @@
       <p class="home-subtitle">Tecnología y estrategias pedagogicas para impulsar la educación<br /></p>
     </div>
   </div>
+  -->
+
   <div class="row">
     <div class="col-md-12"  [hidden]="visibilityHome">
       <br><br>
@@ -18,18 +22,50 @@
   <!--fin de la cabecera--><!--fin de la cabecera--><!--fin de la cabecera-->
 
   <!--Inicio body del home--><!--Inicio body del home--><!--Inicio body del home-->
+
+
+  <section class="page-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Advance Search -->
+          <div class="advance-search">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <input type="text" class="form-control" name="herramienta" [(ngModel)]="filterargs" id="name"
+                         value="" placeholder="Buscar Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)">
+                </div>
+
+                <div class="form-group col-md-2">
+                  <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <div class="row">
+    <!-- vieja barra de búsqueda -->
+    <!--
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-12">
           <mat-form-field class="col-md-4">
-            <input matInput type="text" name="herramienta" [(ngModel)]="filterargs" id="name" value="" placeholder="Buscar Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)" />
+            <input matInput type="text" name="herramienta" [(ngModel)]="filterargs" id="name"
+             value="" placeholder="Buscar Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)" />
           </mat-form-field>
           <br>
           <button mat-raised-button color="accent" (click)="filterData(filterargs,13)" [hidden]="!visibilityHome">Buscar</button>
         </div>
       </div>
     </div>
+    -->
+    <!-- fin de vieja barra de búsqueda -->
     <!--fin de los botones de busqueda--><!--fin de los botones de busqueda-->
 <!--    "{"id":164,"tutorials":[],"examples":[],"name":"Cacoo","description":"Herramienta interactiva para la realizacion de
     quices de manera divertida y
@@ -38,59 +74,96 @@
     quiz","license_type":"Abierta","version":"2","key_words":"Cacoo, Quiz,
     Interactivo","state":"Publicado","integration_lms":"Si","operative_systems":"GNU/Linux"}"-->
     <div class="col-md-3"  style="margin-top: 2%">
-      <mat-card class="transparencia margin-cards animated zoomIn">
+      <mat-card class="transparencia margin-cards animated zoomIn" style="background-color:white">
         <mat-card-subtitle>
-          Refinar resultados por..
+          Refinar resultados por...
         </mat-card-subtitle>
-        <mat-card-content>
-          <section>
-            <label for="Integracion LMS">Integracion LMS</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="lmsSi" [value]="'si'"  > Si </mat-checkbox>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="lmsNo" [value]="'no'" > No </mat-checkbox>
-          </section>
-          <section>
-            <label for="Sistema operativo">Sistema operativo</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="sol"> GNU/Linux </mat-checkbox>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="sow"> Windows </mat-checkbox>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="som"> Mac os </mat-checkbox>
-          </section>
-          <section>
-            <label for="Tipo de licencia">Tipo de licencia</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="licenciaAbierta">Abierta</mat-checkbox>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="licenciaCerrada">Cerrada</mat-checkbox>
-          </section>
-          <section>
-            <label for="Version">Versión</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="uno"> 1 o + </mat-checkbox>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="cero"> 0 a 1 </mat-checkbox>
-          </section>
-          <section>
-            <label for="Version">Ejemplos</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="ejemplos"> Ejemplos disponibles </mat-checkbox>
-          </section>
-          <section>
-            <label for="Version">Tutoriales</label>
-            <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="tutoriales"> Tutoriales disponibles </mat-checkbox>
-          </section>
-        </mat-card-content>
+        <div class="widget category-list" style="box-shadow:none">
+          <h4 class="widget-header">Integración LMS</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="lms"  [value]="'si'" (change)="print($event.source.value)">
+              <span style="color:black">Sí</span></mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">No</span> </mat-checkbox></li>
+          </ul>
+        </div>
+        <div class="widget category-list">
+          <h4 class="widget-header">Sistema Operativo</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+              <span style="color:black">GNU/Linux</span></mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Windows</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Mac os</span> </mat-checkbox></li>
+          </ul>
+        </div>
+        <div class="widget category-list">
+          <h4 class="widget-header">Tipo de licencia</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+              <span style="color:black">Abierta</span></mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Cerrada</span> </mat-checkbox></li>
+          </ul>
+        </div>
+        <div class="widget category-list">
+          <h4 class="widget-header">Versión</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+              <span style="color:black">1 o más</span></mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked"> <span style="color:black">0 a 1</span> </mat-checkbox></li>
+          </ul>
+        </div>
+        <div class="widget category-list">
+          <h4 class="widget-header">Ejemplos</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+              <span style="color:black">Ejemplos disponibles</span></mat-checkbox></li>
+          </ul>
+        </div>
+        <div class="widget category-list">
+          <h4 class="widget-header">Tutoriales</h4>
+          <ul class="category-list">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+              <span style="color:black">Tutoriales disponibles</span></mat-checkbox></li>
+          </ul>
+        </div>
       </mat-card>
     </div>
     <div class="col-md-9">
       <div class="row">
-        <mat-card class="col-md-3 transparencia margin-cards animated zoomIn"
-                  style="text-align: justify; margin-top: 3%;"
-                  *ngFor="let tool of toolsObject | toolsFilter:filterargs | integracion:lmsSi:lmsNo | sistemas:sol:sow:som | licencia:licenciaAbierta:licenciaCerrada | version:uno:cero | ejemplos:ejemplos:tutoriales">
+
+         <div class="product-grid-list">
+            <div class="row mt-30">
+              <div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let tool of toolsObject | toolsFilter:filterargs">
+                <!-- product card -->
+                <div class="product-item bg-light">
+                  <div class="card">
+                    <div class="thumb-content">
+                      <!-- <div class="price">$200</div> -->
+                      <a [routerLink]="['/tool/' +  tool.id + '/detail']" >
+                        <img class="card-img-top img-fluid" src="../../assets/images/banner.jpg" alt="Card image cap">
+                      </a>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title"><a [routerLink]="['/tool/' +  tool.id + '/detail']">{{tool.name}}</a></h4>
+                      <ul class="list-inline product-meta">
+                        <li class="list-inline-item">
+                          <a href=""><i class="fa fa-folder-open-o"></i>{{tool.key_words}}</a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href=""><i class="fa fa-calendar"></i>{{tool.operative_systems}}</a>
+                        </li>
+                      </ul>
+                      <p class="card-text">{{tool.description | limitOfText}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+      </div>
+    </div>
+        <!--
+        <mat-card class="col-md-3 transparencia margin-cards animated zoomIn" style="text-align: justify; margin-top: 3%;"
+                  *ngFor="let tool of toolsObject | toolsFilter:filterargs">
           <mat-card-title class="align-center">
             <h2>
               <a [routerLink]="['/tool/' +  tool.id + '/detail']" >{{tool.name}}</a>
@@ -102,17 +175,8 @@
             <label style="font-size:12px;"> Detalles técnicos: {{tool.operative_systems}}</label>
             <p>{{tool.description | limitOfText}}</p>
           </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="row">
-        <section class="col-md-12" *ngIf="(toolsObject | toolsFilter:filterargs).length === 0">
-          <h3>¡No encontramos resultados para tu búsqueda!</h3>
-          <img src="../../assets/images/perroBuscando.jpg" alt="no encontramos herramientas" height="200"
-               class="animated bounce">
-        </section>
-      </div>
-    </div>
+        </mat-card> -->
+
+¿
   </div>
 </div>

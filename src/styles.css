@@ -3,7 +3,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 body{
-  background-image: url("assets/images/bg2.jpg");
   background-repeat: repeat-y;
   background-size: auto;
 }
@@ -14,3 +13,9 @@ h1,h2,h3,h4,h5,h6,p,label,a,button,span{
 .align-center{
  text-align: center;
 }
+/*
+ul li a{
+  text-decoration: none;
+  color: white;
+}
+*/
