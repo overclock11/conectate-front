@@ -81,47 +81,47 @@
         <div class="widget category-list" style="box-shadow:none">
           <h4 class="widget-header">Integración LMS</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="lms"  [value]="'si'" (change)="print($event.source.value)">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="lmsSi"  [value]="'si'" >
               <span style="color:black">Sí</span></mat-checkbox></li>
-            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">No</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="lmsNo" [value]="'no'"> <span style="color:black">No</span> </mat-checkbox></li>
           </ul>
         </div>
         <div class="widget category-list">
           <h4 class="widget-header">Sistema Operativo</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="sol">
               <span style="color:black">GNU/Linux</span></mat-checkbox></li>
-            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Windows</span> </mat-checkbox></li>
-            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Mac os</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="sow"> <span style="color:black">Windows</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="som"> <span style="color:black">Mac os</span> </mat-checkbox></li>
           </ul>
         </div>
         <div class="widget category-list">
           <h4 class="widget-header">Tipo de licencia</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="licenciaAbierta">
               <span style="color:black">Abierta</span></mat-checkbox></li>
-            <li><mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> <span style="color:black">Cerrada</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="licenciaCerrada"> <span style="color:black">Cerrada</span> </mat-checkbox></li>
           </ul>
         </div>
         <div class="widget category-list">
           <h4 class="widget-header">Versión</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="uno">
               <span style="color:black">1 o más</span></mat-checkbox></li>
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked"> <span style="color:black">0 a 1</span> </mat-checkbox></li>
+            <li><mat-checkbox class="example-margin" [(ngModel)]="cero"> <span style="color:black">0 a 1</span> </mat-checkbox></li>
           </ul>
         </div>
         <div class="widget category-list">
           <h4 class="widget-header">Ejemplos</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="ejemplos">
               <span style="color:black">Ejemplos disponibles</span></mat-checkbox></li>
           </ul>
         </div>
         <div class="widget category-list">
           <h4 class="widget-header">Tutoriales</h4>
           <ul class="category-list">
-            <li><mat-checkbox class="example-margin" [(ngModel)]="checked">
+            <li><mat-checkbox class="example-margin" [(ngModel)]="tutoriales">
               <span style="color:black">Tutoriales disponibles</span></mat-checkbox></li>
           </ul>
         </div>
@@ -132,7 +132,7 @@
 
          <div class="product-grid-list">
             <div class="row mt-30">
-              <div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let tool of toolsObject | toolsFilter:filterargs">
+              <div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let tool of toolsObject | toolsFilter:filterargs | integracion:lmsSi:lmsNo | sistemas:sol:sow:som | licencia:licenciaAbierta:licenciaCerrada | version:uno:cero | ejemplos:ejemplos:tutoriales">
                 <!-- product card -->
                 <div class="product-item bg-light">
                   <div class="card">
