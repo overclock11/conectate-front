@@ -46,49 +46,51 @@
           <section>
             <label for="Integracion LMS">Integracion LMS</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="lms"  [value]="'si'" (change)="print($event.source.value)"> Si </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="lmsSi" [value]="'si'"  > Si </mat-checkbox>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> No </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="lmsNo" [value]="'no'" > No </mat-checkbox>
           </section>
           <section>
             <label for="Sistema operativo">Sistema operativo</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked"> GNU/Linux </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="sol"> GNU/Linux </mat-checkbox>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> Windows </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="sow"> Windows </mat-checkbox>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate"> Mac os </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="som"> Mac os </mat-checkbox>
           </section>
           <section>
             <label for="Tipo de licencia">Tipo de licencia</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked">Abierta</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="licenciaAbierta">Abierta</mat-checkbox>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Cerrada</mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="licenciaCerrada">Cerrada</mat-checkbox>
           </section>
           <section>
             <label for="Version">Versión</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked"> 1 o + </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="uno"> 1 o + </mat-checkbox>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked"> 0 a 1 </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="cero"> 0 a 1 </mat-checkbox>
           </section>
           <section>
             <label for="Version">Ejemplos</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked"> Ejemplos disponibles </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="ejemplos"> Ejemplos disponibles </mat-checkbox>
           </section>
           <section>
             <label for="Version">Tutoriales</label>
             <br>
-            <mat-checkbox class="example-margin" [(ngModel)]="checked"> Tutoriales disponibles </mat-checkbox>
+            <mat-checkbox class="example-margin" [(ngModel)]="tutoriales"> Tutoriales disponibles </mat-checkbox>
           </section>
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col-md-9">
       <div class="row">
-        <mat-card class="col-md-3 transparencia margin-cards animated zoomIn" style="text-align: justify; margin-top: 3%;" *ngFor="let tool of toolsObject | toolsFilter:filterargs">
+        <mat-card class="col-md-3 transparencia margin-cards animated zoomIn"
+                  style="text-align: justify; margin-top: 3%;"
+                  *ngFor="let tool of toolsObject | toolsFilter:filterargs | integracion:lmsSi:lmsNo | sistemas:sol:sow:som | licencia:licenciaAbierta:licenciaCerrada | version:uno:cero | ejemplos:ejemplos:tutoriales">
           <mat-card-title class="align-center">
             <h2>
               <a [routerLink]="['/tool/' +  tool.id + '/detail']" >{{tool.name}}</a>
