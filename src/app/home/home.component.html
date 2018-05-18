@@ -11,8 +11,8 @@
   <!--fin de la cabecera--><!--fin de la cabecera--><!--fin de la cabecera-->
 
   <!--Inicio body del home--><!--Inicio body del home--><!--Inicio body del home-->
-  <section class="page-search">
-    <div class="container">
+  <section class="page-search row">
+    <div class="col-md-12">
       <div class="row">
         <div class="col-md-12">
           <!-- Advance Search -->
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="form-group col-md-2">
-                  <button type="submit" class="btn btn-primary" (click)="filterData(filterargs,13)" [hidden]="!visibilityHome">Buscar</button>
+                  <button type="submit" class="btn btn-default" (click)="filterData(filterargs,13)" [hidden]="!visibilityHome">Buscar</button>
                 </div>
               </div>
             </form>
@@ -114,7 +114,7 @@
     </div>
     <div class="col-md-9">
       <div class="row">
-        <div class="product-grid-list">
+        <div class="product-grid-list container">
           <div class="row mt-30">
             <div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let tool of toolsObject | toolsFilter:filterargs | integracion:lmsSi:lmsNo |
                   sistemas:sol:sow:som | licencia:licenciaAbierta:licenciaCerrada | version:uno:cero |
