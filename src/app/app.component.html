@@ -1,27 +1,42 @@
 <mat-toolbar color="primary">
-  <button  mat-icon-button (click)="sidenav.toggle()">
-    <mat-icon class="conectate-icon">menu</mat-icon>
-  </button>
-  <span class="conectate-spacer"></span>
-  <span>Conecta-Te</span>
+        <span>Conecta-Te</span>
+        <span class="conectate-spacer"></span>
+        <button  id="btnbuild" mat-icon-button [hidden]="!git" (mouseenter)="openToolMenu()" [matMenuTriggerFor]="addtool">
+                <mat-icon class="conectate-icon">build</mat-icon>
+        </button>
+        <mat-menu id="menu "#addtool="matMenu">
+                <span mat-menu-item class="nav-link" [routerLink]="['/tool']">Agregar Herramienta</span>
+        </mat-menu>
+        <a class="nav-link1" [routerLink]="['/home']" >Inicio</a>
+        <button mat-button  id="btnmenu" class="conectate-menu" *ngIf="!sesion" (mouseenter)="openMenu()" [matMenuTriggerFor]="miembro">¿Eres miembro conectate?</button>
+        <mat-menu id="menu "#miembro="matMenu">
+            <span mat-menu-item class="nav-link" (click)="sesion='true'" [routerLink]="['tool/lista']">Ingresa Admin</span>
+            <span mat-menu-item class="nav-link" (click)="git='true'; disabled='true'; sesion='true'" [routerLink]="['tool/drafts']">Ingreso Asesor</span>
+        </mat-menu>
+        <button mat-button id="btnmenu" class="conectate-menu" *ngIf="sesion" (mouseenter)="openMenu()" [matMenuTriggerFor]="salir">Carlos</button>
+        <mat-menu id="menu "#salir="matMenu">
+            <span mat-menu-item class="nav-link" (click)="closeSession()" >Cerrrar sesión</span>
+        </mat-menu>
 </mat-toolbar>
-
+<router-outlet></router-outlet>
+<!--
 <mat-sidenav-container class="example-container">
-  <mat-sidenav mode="side" #sidenav opened="true">
-    <ul class="nav">
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
+    <mat-sidenav mode="side" #sidenav opened="true">
+        <ul class="nav">
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
 
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
-      <li class="nav-item" >
-        <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: #007bff;" >Cerrar sesión</a>
-      </li>
-    </ul>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
+            <li class="nav-item" >
+                <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: #007bff;" >Cerrar sesión</a>
+              </li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>-->
+
 
 
