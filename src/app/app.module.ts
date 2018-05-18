@@ -56,6 +56,11 @@ import { ApproveToolComponent } from './approve-tool/approve-tool.component';
 import { ListExampleComponent } from './list-example/list-example.component';
 import { RequestReviewComponent } from './request-review/request-review.component';
 import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.component';
+import { IntegracionPipe } from './home/filtros/integracion.pipe';
+import { SistemasPipe } from './home/filtros/sistemas.pipe';
+import { LicenciaPipe } from './home/filtros/licencia.pipe';
+import { VersionPipe } from './home/filtros/version.pipe';
+import { EjemplosPipe } from './home/filtros/ejemplos.pipe';
 
 @NgModule({
   declarations: [
@@ -74,7 +79,12 @@ import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.com
     AddDrafExamplesComponent,
     ListExampleComponent,
     RequestReviewComponent,
-    ConfirmAddToolComponent
+    ConfirmAddToolComponent,
+    IntegracionPipe,
+    SistemasPipe,
+    LicenciaPipe,
+    VersionPipe,
+    EjemplosPipe
   ],
   imports: [
     BrowserModule,
@@ -118,7 +128,7 @@ import { ConfirmAddToolComponent } from './confirm-add-tool/confirm-add-tool.com
   bootstrap: [AppComponent],
   entryComponents: [
     AddDrafExamplesComponent,
-    AddTutorialComponent, 
+    AddTutorialComponent,
     ConfirmAddToolComponent
   ]
 })
