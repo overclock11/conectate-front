@@ -13,3 +13,14 @@
   background-color: #3fb122;
   margin-left:15em;
 }
+
+#left, #right{
+  float: left;
+}
+.nav-link{
+  color: rgb(148, 147, 147);
+  padding: 2px;
+}
+.nav-link:hover{
+  color:rgb(65, 62, 62);
+}
