@@ -3,7 +3,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 body{
-  background-image: url("assets/images/bg2.jpg");
+  /**background-image: url("assets/images/bg2.jpg");*/
   background-repeat: repeat-y;
   background-size: auto;
 }
