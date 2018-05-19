@@ -19,13 +19,13 @@
           <div class="advance-search">
             <form>
               <div class="form-row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-10">
                   <input type="text" class="form-control" name="herramienta" [(ngModel)]="filterargs" id="name"
                          value="" placeholder="Buscar Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)">
                 </div>
 
                 <div class="form-group col-md-2">
-                  <button type="submit" class="btn btn-default" (click)="filterData(filterargs,13)" [hidden]="!visibilityHome">Buscar</button>
+                  <button type="submit" class="btn btn-default btn-block" (click)="filterData(filterargs,13)">Buscar</button>
                 </div>
               </div>
             </form>
