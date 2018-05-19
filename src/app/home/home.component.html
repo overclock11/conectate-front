@@ -125,17 +125,17 @@
                   <div class="thumb-content">
                     <!-- <div class="price">$200</div> -->
                     <a [routerLink]="['/tool/' +  tool.id + '/detail']" >
-                      <img class="card-img-top img-fluid" src="../../assets/images/banner.jpg" alt="Card image cap">
+                      <img class="card-img-top img-fluid" src="../../assets/images/educacion.jpg" alt="Card image cap">
                     </a>
                   </div>
                   <div class="card-body">
-                    <h4 class="card-title"><a [routerLink]="['/tool/' +  tool.id + '/detail']">{{tool.name}}</a></h4>
+                    <h4 class="card-title"><a style="color:blue;" [routerLink]="['/tool/' +  tool.id + '/detail']">{{tool.name}}</a></h4>
                     <ul class="list-inline product-meta">
                       <li class="list-inline-item">
-                        <a href=""><i class="fa fa-folder-open-o"></i>{{tool.key_words}}</a>
+                        <a href=""><i class="fa fa-key"></i>{{tool.key_words}}</a>
                       </li>
                       <li class="list-inline-item">
-                        <a href=""><i class="fa fa-calendar"></i>{{tool.operative_systems}}</a>
+                        <a href=""><i class="fa fa-desktop"></i>{{tool.operative_systems}}</a>
                       </li>
                     </ul>
                     <p class="card-text">{{tool.description | limitOfText}}</p>
