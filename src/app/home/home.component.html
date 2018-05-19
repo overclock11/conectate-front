@@ -1,20 +1,4 @@
 <div class="container-fluid">
-  <div class="row"  [hidden]="!visibilityHome">
-    <div class="col-md-6 offset-md-3">
-      <h1 class="home-title" style="margin-left: 38%;" >Conectate</h1>
-    </div>
-    <div class="col-md-6 offset-md-2">
-      <p class="home-subtitle" style="margin-left: 38%;">Tecnología y estrategias pedagogicas para impulsar la educación<br /></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12"  [hidden]="visibilityHome">
-      <br><br>
-      <h2 class="col-md-6 offset-md-3 animated" style="margin-left: 38%;color:rgb(31, 160, 31);">Herramientas por aprobar</h2>
-      <br><br>
-      <p style="margin-left: 23%;">En esta sección encontraras todas las herramientas que están pendiendes de aprobación para ser publicadas en la web.</p>
-    </div>
-  </div>
   <!--fin de la cabecera--><!--fin de la cabecera--><!--fin de la cabecera-->
 
   <!--Inicio body del home--><!--Inicio body del home--><!--Inicio body del home-->
@@ -26,7 +10,7 @@
           <div class="advance-search">
             <form>
               <div class="form-row">
-                <div class="form-group col-md-10">
+                <div class="form-group offset-md-3 col-md-4">
                   <input type="text" class="form-control" name="herramienta" [(ngModel)]="filterargs" id="name"
                          value="" placeholder="Buscar Herramientas, palabras clave" (keypress)="filterData(filterargs,$event.keyCode)">
                 </div>

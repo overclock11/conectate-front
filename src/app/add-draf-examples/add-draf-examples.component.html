@@ -61,11 +61,11 @@
     </p>
     <br><br>
   </div>
-  <div class="col-md-12">
+  <div class="offset-md-7 col-md-5">
     <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
     <br>
     <button id ="Guardar" mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
-    <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true"><mat-icon aria-label="icon-button">clear</mat-icon>Cancelar</button>
   </div>
 </div>
 

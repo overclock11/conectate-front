@@ -19,7 +19,7 @@ export class AddDrafExamplesComponent implements OnInit {
   public invoiceForm: FormGroup;
   public hideContent: Boolean = true;
   public errorMessage: String;
-  public buttonMessage: String = 'Guardar borrador';
+  public buttonMessage: String = 'Guardar';
   public pegadogicObject: any[];
   public disciplines: any[];
   public editable: Boolean;
