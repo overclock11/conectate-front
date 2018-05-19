@@ -17,6 +17,10 @@
 #left, #right{
   float: left;
 }
+
+#texto, #toolimg{
+  float: left;
+}
 .nav-link{
   color: rgb(148, 147, 147);
   padding: 2px;

@@ -9,19 +9,19 @@
 
   <mat-action-row class="conectate-slides">
     <div class="conectate-float-center" >
-      <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
+      <mat-card class="conectate-card float-left conectate-child" style="background-color: rgb(167, 240, 243);" *ngFor="let tutorials of TutorialList">
         <mat-card-header>
           <div mat-card-avatar class="conectate-header-image">
-            <mat-icon>cloud_queue</mat-icon>
+            <mat-icon style="color:red;">play_circle_filled</mat-icon>
           </div>
           <mat-card-title>{{tutorials.name}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p class="text-justify" class="conectate-nowrap">
+          <p class="text-justify" class="conectate-nowrap" style="color: black;">
             {{tutorials.objective }}
           </p>
 
-          <a class="text-center" href="{{tutorials.url}}" target="_blank">Url Tutorial</a>
+          <a class="text-center" href="{{tutorials.url}}" style="color:blue;"target="_blank">Url Tutorial</a>
         </mat-card-content>
         <mat-card-actions>
           <button mat-button (click)="showTutorial(tutorials)">Ver mas</button>
