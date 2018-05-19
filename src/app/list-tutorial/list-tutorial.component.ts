@@ -33,7 +33,7 @@ export class ListTutorialComponent implements OnInit {
     this.tutorialService.getTutorials(this.idTool).subscribe(
       result => {        
           this.TutorialList = result;    
-          this.widthMaxRow = this.TutorialList.length * 270;      
+          this.widthMaxRow = this.TutorialList.length * 260;      
       },
       error => {
         console.log(<any>error);
@@ -79,11 +79,11 @@ export class ListTutorialComponent implements OnInit {
   }
 
   nextButton():void{
-    document.getElementById('contenedor').scrollLeft += 300;
+    document.getElementById('contenedor').scrollLeft += 900;
   }
 
   previousButton(): void{
-    document.getElementById('contenedor').scrollLeft -= 300;
+    document.getElementById('contenedor').scrollLeft -= 900;
   }
 }
 
