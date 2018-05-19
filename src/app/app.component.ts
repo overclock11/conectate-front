@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'app';
   private sesion: Boolean = false;
   private git: Boolean = false;
+  private admin: Boolean = false;
   private login: Boolean = false;
   constructor(private route: ActivatedRoute, public router: Router) {
   }
@@ -26,6 +27,7 @@ export class AppComponent {
   closeSession(){
     sessionStorage.clear();
     this.git=false;
+    this.admin=false;
     this.sesion=false;
     this.router.navigate(['/home']);
     document.getElementById("btnmenu").setAttribute("disabled", "disabled");

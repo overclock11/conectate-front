@@ -40,9 +40,11 @@
                     </mat-form-field>
 
                     <mat-form-field class="col-12 col-md-4">
-                        <input matInput type="text" name="txtLicense" [(ngModel)]="tool.license_type" placeholder="Tipo de Licencia" id="txtLicense"
-                            value="" required #txtLicense="ngModel" />
-                        <mat-error *ngIf="txtLicense.invalid">Tipo de licencia es requerida.</mat-error>
+                        <mat-select name="txtLicense" [(value)]="tool.license_type" placeholder="Tipo de Licencia" id="txtLicense" required>
+                            <mat-option id="Abierta" value="Abierta">Abierta</mat-option>
+                            <mat-option id="Cerrada" value="Cerrada">Cerrada</mat-option>
+                        </mat-select>
+                      
                     </mat-form-field>
 
                     <mat-form-field class="col-12 col-md-2">
@@ -79,8 +81,10 @@
                     </mat-form-field>
 
                     <mat-form-field class="col-12 col-md-12">
-                        <textarea matInput name="txtIntegrationLms" [(ngModel)]="tool.integration_lms" ng-value="" rows="4" maxlength="350" placeholder="Integración LMS"
-                            #txtIntegrationLms="ngModel" id="txtIntegrationLms"></textarea>
+                        <mat-select matInput name="txtIntegrationLms" [(value)]="tool.integration_lms" placeholder="Integración LMS" id="txtIntegrationLms">
+                                <mat-option id="Si" value="Si">Si</mat-option>
+                                <mat-option id="No" value="No">No</mat-option>
+                        </mat-select>
                     </mat-form-field>
 
                     
