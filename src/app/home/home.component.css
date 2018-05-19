@@ -9,3 +9,7 @@
   margin-bottom: 8%;
   font-weight: bold;
 }
+
+.card-body{
+  height: 213px;
+}
