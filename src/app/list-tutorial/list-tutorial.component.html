@@ -1,6 +1,6 @@
 <mat-expansion-panel expanded="true">
   <mat-expansion-panel-header>
-    <mat-panel-title><h5>Tutoriales</h5>
+    <mat-panel-title><h6>Tutoriales</h6>
     </mat-panel-title>
     <mat-panel-description>
       A continuación encontraras los tutoriales de la herramienta.
@@ -10,12 +10,11 @@
   <mat-action-row style="justify-content: flex-start;">
     <div class="conectate-container ">
       <div class="slick-slider">
-        <button class="slick-prev" type="button" style="display: block;" aria-label="Previous" (click)="previousButton()">
+        <button [hidden]="!showSlider" class="slick-prev" type="button" style="display: block;" aria-label="Previous" (click)="previousClick()">
             <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 42px">keyboard_arrow_left</mat-icon>            
           </button>
           <div  id="contenedor" class="slick-list">
-            <div class="slick-track" [ngStyle]="{'width': widthMaxRow + 'px' }"   style="opacity: 1; transform: translate3d( 2%, 0px, 0px);">
-
+              <div class="slick-track" [ngStyle]="{'width': widthMaxRow + 'px' }"   style="opacity: 1; transform: translate3d( 2%, 0px, 0px);">
                 <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
                     <mat-card-header>
                       <div mat-card-avatar class="conectate-header-image">
@@ -38,37 +37,12 @@
                   <div class="clear"></div>             
             </div>
           </div>
-        <button class="slick-next" type="button" style="display: block;" (click)="nextButton()">
+        <button [hidden]="!showSlider" class="slick-next" type="button" style="display: block;" (click)="nextClick()">
             <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 42px">keyboard_arrow_right</mat-icon>
         </button>
       </div>
     </div>
   </mat-action-row>
-
- <!-- <mat-action-row class="conectate-slides">
-    <div class="conectate-float-center" >
-      <mat-card class="conectate-card float-left conectate-child" style="background-color: rgb(167, 240, 243);" *ngFor="let tutorials of TutorialList">
-        <mat-card-header>
-          <div mat-card-avatar class="conectate-header-image">
-            <mat-icon style="color:red;">play_circle_filled</mat-icon>
-          </div>
-          <mat-card-title>{{tutorials.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p class="text-justify" class="conectate-nowrap" style="color: black;">
-            {{tutorials.objective }}
-          </p>
-
-          <a class="text-center" href="{{tutorials.url}}" style="color:blue;"target="_blank">Url Tutorial</a>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button (click)="showTutorial(tutorials)">Ver mas</button>
-          <button mat-button (click)="editTutorial(tutorials)">Editar</button>
-        </mat-card-actions>
-      </mat-card>
-      <div class="clear"></div>
-    </div>
-  </mat-action-row> -->
 
   <mat-action-row>
     <button id="btnAgregarTutorial" type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">

@@ -20,6 +20,7 @@ export class ListTutorialComponent implements OnInit {
   private titleDialog: string ;  
   private allowEdit: boolean;
   private widthMaxRow: number;
+  private showSlider: boolean = false;
 
   constructor(private tutorialService: TutorialService, public dialog: MatDialog) {
     this.TutorialList  = [];
@@ -33,7 +34,8 @@ export class ListTutorialComponent implements OnInit {
     this.tutorialService.getTutorials(this.idTool).subscribe(
       result => {        
           this.TutorialList = result;    
-          this.widthMaxRow = this.TutorialList.length * 260;      
+          this.widthMaxRow = this.TutorialList.length * 260;             
+          this.showSlider = (this.widthMaxRow > 960);
       },
       error => {
         console.log(<any>error);
@@ -78,19 +80,11 @@ export class ListTutorialComponent implements OnInit {
     });
   }
 
-  nextButton():void{
-    document.getElementById('contenedor').scrollLeft += 900;
+  nextClick():void{
+    document.getElementById('contenedor').scrollLeft += 900;    
   }
 
-  previousButton(): void{
+  previousClick(): void{
     document.getElementById('contenedor').scrollLeft -= 900;
   }
 }
-
-const ELEMENT_Tutorial: Tutorial[] = [
-  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", tool :1, url: "https://material.angular.io/components/expansion/overview" },
-  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },
-  {id: 8, name: 'Probando informacion',  objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },
-  {id: 7, name: 'Agregar una tarea', objective  :"manejar la información", tool :1, url: "https://material.angular.io/components/expansion/overview"  },  
-  {id: 6, name: 'Como usar la herramienta', objective  :"These utility classes float an element to the left or right, or disable floating, based on the current viewport size using the CSS float property. !important is included to avoid specificity issues. These use the same viewport breakpoints as our grid system", tool :1, url: "https://material.angular.io/components/expansion/overview" }
-];
