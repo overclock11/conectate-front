@@ -17,7 +17,7 @@ export class ConfirmAddToolComponent implements OnInit {
 
   redirectHome(): void {
     this.dialogRef.close();
-    this.router.navigate(['/home']);
+    this.router.navigate(['tool/lista']);
   }
 
 }
