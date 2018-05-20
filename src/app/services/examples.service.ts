@@ -19,6 +19,7 @@ export class ExamplesService {
     return this.http.get(this.url+toolId+'/examples/');
   }
   addExample(example: Example): Observable<any> {
+    debugger;
     return this.http.post(this.urlCreate, example);
   }
 }
