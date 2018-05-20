@@ -126,14 +126,18 @@ export class AddDrafExamplesComponent implements OnInit {
     this.errorMessage ="";
     this.buttonMessage ="Guardar borrador";
 
-    if (this.invoiceForm.value.itemRows[0].name === '') {
+    if (typeof this.invoiceForm.value.itemRows[0] === 'undefined') {
+      this.invoiceForm.value.itemRows[0] = {};
+      this.invoiceForm.value.itemRows[0].name = '';
+    }
+    if (this.invoiceForm.value.itemRows[0].name === '' ) {
       this.newExample.resources= [];
     }
     else{
       this.newExample.resources =this.invoiceForm.value.itemRows;
-      this.newExample.state= 'Borrador';
-      this.newExample.tool = parseInt(this.data.id);
     }
+    this.newExample.state= 'Borrador';
+    this.newExample.tool = parseInt(this.data.id);
     this.exampleService.addExample(this.newExample).subscribe((data) => {
       for (let i=0;i<this.newExample.resources.length;i++){
         this.newExample.resources[i].example = data.id;
