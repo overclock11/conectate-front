@@ -22,12 +22,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <button  id="btnbuild" mat-icon-button [hidden]="!git" (mouseenter)="openToolMenu()" [matMenuTriggerFor]="addtool">
-              <mat-icon class="conectate-icon" style="color: blue; size: 20px">build</mat-icon>
-            </button>
-            <mat-menu id="menu "#addtool="matMenu">
-              <span mat-menu-item class="nav-link" [routerLink]="['/tool']">Agregar Herramienta</span>
-            </mat-menu>
+            <span mat-menu-item style="margin-left:30em;size:20px;" [hidden]="!git" class="nav-link" [routerLink]="['/tool']">Agregar Herramienta</span> 
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto main-nav ">
                 <!--<li class="nav-item">
@@ -71,8 +68,7 @@
                 </li> 
   
                 <li class="nav-item dropdown dropdown-slide" *ngIf="git">
-                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">
-                    Carlos<span><i class="fa fa-angle-down"></i></span>
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">Carlos<span><i class="fa fa-angle-down"></i></span>
                   </a>
                   
                   <!-- Dropdown list -->
@@ -83,8 +79,7 @@
                 </li> 
 
                 <li class="nav-item dropdown dropdown-slide" *ngIf="admin">
-                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">
-                   Santiago<span><i class="fa fa-angle-down"></i></span>
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">Santiago<span><i class="fa fa-angle-down"></i></span>
                   </a>
                   
                   <!-- Dropdown list -->
