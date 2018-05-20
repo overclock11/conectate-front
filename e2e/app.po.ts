@@ -81,21 +81,21 @@ export class AppPage {
 
   selectToolDraftOptions() {
     element(by.id('state')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.xpath('//span[contains(text(), "Borrador")]')).click();
     element(by.id('txtLicense')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.xpath('//span[contains(text(), "Abierta")]')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.id('txtIntegrationLms')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.xpath('//span[contains(text(), "No")]')).click();
     
    }
 
    selectToolDraftSO() {
     element(by.id('SO')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.xpath('//span[contains(text(), "Windows")]')).click();
     element(by.css('.cdk-overlay-backdrop.cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing')).click();
 
@@ -103,11 +103,11 @@ export class AppPage {
 
 
    saveToolDraft(){
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.id('btnGuardar')).click(); 
-    browser.sleep(2000);
+    browser.sleep(1000);
     element(by.id('NoEdit')).click();
-    browser.sleep(2000);
+    browser.sleep(1000);
     return element(by.cssContainingText('a', 'Jira Confluence')).getText();
   }
 
@@ -157,15 +157,17 @@ export class AppPage {
   }
 
   navigateToAddExamplePage() {
-    element(by.cssContainingText('a', 'Jira Confluence')).getText();
+    element(by.cssContainingText('a', 'Moodle')).click();
+    browser.sleep(2000);
     element(by.id('Add')).click();
     return element(by.css('.col-md-12 h1')).getText();
   }  
 
   editExampleDraftInputs() {
     element(by.id('name')).sendKeys('Ejemplo1');
-    element(by.name('description')).sendKeys('Desc');
-    element(by.name('Instrucciones')).sendKeys('Leer capitulo 2');
+    browser.sleep(1000);
+    element(by.id('description')).sendKeys('Desc');
+    element(by.id('Instrucciones')).sendKeys('Leer capitulo 2');
     browser.sleep(2000);
     element(by.id('nombre')).sendKeys('Manifiesto Agil');
     element(by.id('Enlace')).sendKeys('http://www.agilemanifesto.org');
@@ -179,7 +181,7 @@ export class AppPage {
     secondName.sendKeys('Libro');
     browser.sleep(2000);
     let secondUrl= element.all(by.id('Enlace')).last();
-    secondUrl.sendKeys('otro');
+    secondUrl.sendKeys('https://www.youtube.com/watch?v=Sx_2dOYOtes');
     element(by.xpath('//span[contains(text(), "Agregar recurso")]')).click();
     let lasDelete=element.all(by.css('.fas.fa-trash')).last();
     lasDelete.click();

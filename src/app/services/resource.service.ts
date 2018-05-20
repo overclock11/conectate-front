@@ -13,7 +13,6 @@ export class ResourceService {
     this.url =  config.apiEndpoint + 'resource/many/';
   }
   addResource(resource): Observable<any> {
-    debugger;
     return this.http.post(this.url, resource);
   }
 }

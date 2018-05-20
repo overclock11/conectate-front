@@ -58,6 +58,13 @@ describe('conectate App', () => {
     expect(page.chooseFilterOptions()).toEqual('Cacoo');
   });
 
+  it('should close sesion', () => {
+    page.navigateTo();
+    page.showMenu();
+    page.navigateToGitProfile();
+    expect(page.closeGitSesion()).toEqual('¿Eres miembro conectate?');
+  });
+
   it('should verified tool draft', () => {
     page.navigateTo();
     page.showMenu();
@@ -75,7 +82,7 @@ describe('conectate App', () => {
     expect(page.getNewTool()).toEqual('Jira Confluence');
   });
 
-  /*it('should add example', () => {
+  it('should add example', () => {
     page.navigateTo();
     page.showMenu();
     page.navigateToGitProfile();
@@ -83,8 +90,8 @@ describe('conectate App', () => {
     page.editExampleDraftInputs();
     page.selectExampleDraftOptions();
     page.editExampleDraftResource();
-    expect(page.saveExampleDraft()).toEqual('Jira Confluence');
-  });*/
+    expect(page.saveExampleDraft()).toEqual('Ejemplo1');
+  });
 
   it('should add tutorial', () => {
     page.navigateTo();
@@ -95,87 +102,6 @@ describe('conectate App', () => {
     expect(page.saveTutorialDraft()).toEqual('Tutorial Angular');
   });
   
-
-
-
-
-
-
-
-
-  /*
-  it('should navigate to add example page', () => {
-    page.navigateTo();
-    page.navigateToDetail(2);
-    browser.sleep(2000);
-    expect(page.navigateToAddExamplePage()).toEqual('Moodle - foros');
-  });
-
-  it('should edit example draft', () => {
-    page.navigateTo();
-    page.navigateToDetailName();
-    page.editExampleDraftInputs();
-    page.editExampleDraftResource();
-    page.selectExampleDraftOptions();
-    expect(page.navigateToDetail(2)).toEqual('angular');
-  });
-
-
-  it('should edit and cancel example draft', () => {
-    page.navigateTo();
-    page.navigateToDetailName();
-    page.editExampleDraftInputs();
-    page.editExampleDraftResource();
-    page.selectExampleDraftOptions();
-    page.cancelExampleDraft();
-    expect(page.navigateToDetail(2)).toEqual('angular');
-  });
-
-  it('should edit and save example draft', () => {
-    page.navigateTo();
-    page.navigateToDetailName();
-    page.editExampleDraftInputs();
-    page.editExampleDraftResource();
-    page.selectExampleDraftOptions();
-    page.saveExampleDraft();
-    expect(page.navigateToDetail(2)).toEqual('angular');
-  });
-
-  it('should login and see drafts', () => {
-    page.navigateTo();
-    page.navigateToDrafts();
-    expect(page.navigateToDrafts()).toEqual('Herramientas por aprobar');
-  });
-
-  it('should go into draft and approve', () => {
-    page.navigateTo();
-    page.navigateToDrafts();
-    page.approveDraft();
-    var checked=element(by.css('.mat-checkbox.mat-accent.mat-checkbox-anim-unchecked-checked.mat-checkbox-checked'))
-    expect(checked.isDisplayed()).toBe(true);
-  });
-
-  it('should edit tool draft', () => {
-    page.navigateTo();
-    //page.getMenu();
-    page.navigateToAddToolPage();
-    page.editToolDraftInputs();
-    page.selectToolDraftOptions();
-    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });
-  
-  it('should edit and save tool draft', () => {
-    page.navigateTo();
-    //page.getMenu();
-    page.navigateToAddToolPage();
-    page.editToolDraftInputs();
-    page.selectToolDraftOptions();
-    page.saveToolDraft();
-    expect(page.navigateToAddToolPage()).toEqual('Agregar herramienta');
-  });*/
-
-
-
   
 
 });
