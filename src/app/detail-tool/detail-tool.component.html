@@ -1,13 +1,12 @@
 <div class="container-fluid">
-
+  <section class="page-search row">
+    <div class="col-md-12">
+      <h4 style="margin-left: 10%; ">Detalle de herramienta</h4>
+    </div>
+  </section>
   <div class="row">
     <div class="clearfix"></div>
-    <div class="col-12  col-md-10 offset-md-1">     
-      <div>
-        <a id="left" class="nav-link" [routerLink]="['/home']" style="font-size: 12px; color:blue;">Inicio > </a>
-        <a id="right" class="nav-link" style="font-size: 12px;color:blue;">{{tool.name}}</a>
-      </div>
-      <br/>
+    <div class="col-12  col-md-10 offset-md-1" style="margin-top: 2%">     
       <mat-accordion class="example-headers-align" multi="true">
 
         <mat-expansion-panel expanded="true" hideToggle="true" disabled="true">
@@ -121,30 +120,5 @@
 
     </div>
   </div>
-
-
-  <!--
-  <div class="row bar-admin" >
-    <div class="col-md-8">¿Se encuentra listo para publicar? Envía tu concepto de Verificado haciendo click en el botón</div>
-    <br />
-    <div class="col-md-2">
-     
-    </div>
-    <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">La herramienta sera revisada por un miembro autorizado.</p>
-    </div>
-  </div>
-
-  <div class="row bar-admin" >
-    <div class="col-md-8">¿Se encuentra listo para publicar? Envía tu concepto y publicalo haciendo click en el botón</div>
-    <div class="col-md-2">
-     
-    </div>
-    <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">Ocurrio un error al publicar la herramienta.</p>
-    </div>
-  </div> -->
 
 </div>

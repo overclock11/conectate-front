@@ -13,7 +13,7 @@
         <button [hidden]="!showSlider" class="slick-prev" type="button" style="display: block;" aria-label="Previous" (click)="previousClick()">
             <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 42px">keyboard_arrow_left</mat-icon>            
           </button>
-          <div  id="contenedor" class="slick-list">
+          <div  id="contenedorTutorial" class="slick-list">
               <div class="slick-track" [ngStyle]="{'width': widthMaxRow + 'px' }"   style="opacity: 1; transform: translate3d( 2%, 0px, 0px);">
                 <mat-card class="conectate-card float-left conectate-child" *ngFor="let tutorials of TutorialList">
                     <mat-card-header class="conectate-card-clickable" (click)="showTutorial(tutorials)">
@@ -44,7 +44,7 @@
   </mat-action-row>
 
   <mat-action-row>
-    <button id="btnAgregarTutorial" type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">
+    <button [hidden]="!git" id="btnAgregarTutorial" type="button" mat-raised-button color="primary" matTooltip="Agregar tutorial" (click)="addTutorial()">
       <mat-icon aria-label="">add</mat-icon>Agregar Tutorial
     </button>
   </mat-action-row>

@@ -81,10 +81,10 @@ export class ListTutorialComponent implements OnInit {
   }
 
   nextClick():void{
-    document.getElementById('contenedor').scrollLeft += 900;    
+    document.getElementById('contenedorTutorial').scrollLeft += 900;    
   }
 
   previousClick(): void{
-    document.getElementById('contenedor').scrollLeft -= 900;
+    document.getElementById('contenedorTutorial').scrollLeft -= 900;
   }
 }

@@ -1,7 +1,13 @@
 <div class="container-fluid">
+    <section class="page-search row">
+        <div class="col-md-12">
+            <h4 style="margin-left: 10%; ">Agregar herramienta</h4>
+        </div>
+    </section>
+
     <div class="row">
-        <div class="col-12  col-md-12">
-            <h2>{{title}}</h2>
+        <div class="col-12  col-md-10 offset-md-1" style="margin-top: 2%">
+   
             <mat-expansion-panel expanded="true" hideToggle="true" disabled="true">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
@@ -80,7 +86,7 @@
                             #txtUrlDownload="ngModel" />
                     </mat-form-field>
 
-                    <mat-form-field class="col-12 col-md-12">
+                    <mat-form-field class="col-12 col-md-3">
                         <mat-select matInput name="txtIntegrationLms" [(value)]="tool.integration_lms" placeholder="Integración LMS" id="txtIntegrationLms">
                                 <mat-option id="Si" value="Si">Si</mat-option>
                                 <mat-option id="No" value="No">No</mat-option>
@@ -91,12 +97,13 @@
 
                     <div class="col-12 col-md-4 offset-md-8 conectate-button-row">
                         <br/>
+                        <button id="btnGuardar" mat-raised-button color="primary" type="submit" [disabled]="!frmTool.form.valid">
+                                <mat-icon aria-label="icon-button">send</mat-icon>
+                                Guardar</button>
                         <button id="Cancelar" mat-raised-button color="warn" type="button" [routerLink]="['/home']">
                             <mat-icon aria-label="icon-button">clear</mat-icon>
                             Cancelar</button>
-                        <button id="btnGuardar" mat-raised-button color="primary" type="submit" [disabled]="!frmTool.form.valid">
-                            <mat-icon aria-label="icon-button">send</mat-icon>
-                            Guardar</button>
+                        
                     </div>
                     
                 </form>

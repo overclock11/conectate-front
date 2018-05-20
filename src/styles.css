@@ -76,3 +76,12 @@ h1,h2,h3,h4,h5,h6,p,label,a,button,span{
     text-align: center;    
     margin-right: 5px;    
   }
+
+  .page-search{
+    padding: 10px 0;
+  }
+
+  .page-search h4{
+    color: #FFF;
+    font-weight:  400;
+  }
