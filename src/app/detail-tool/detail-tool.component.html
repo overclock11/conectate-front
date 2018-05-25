@@ -1,47 +1,22 @@
 <div class="container-fluid">
-
-
-  <div class="row bar-admin" [hidden]="!git">
-    <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
-    <div class="col-md-2">
-      <mat-checkbox [(ngModel)]="disabled">Revisado</mat-checkbox>
-    </div>
-    <div class="col-md-2">
-      <button mat-raised-button color="primary" [disabled]="!disabled" (click)="tool.state='Revisado';reviewTool()" >Solicitar Aprobacion</button>
-    </div>
+  <section class="page-search row">
     <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">La herramienta sera revisada por un miembro autorizado.</p>
+      <h4 style="margin-left: 10%; ">Detalle de herramienta</h4>
     </div>
-  </div>  
-
-  <div class="row bar-admin" [hidden]="!admin">
-    <div class="col-md-8">Estás viendo un borrador pendiente por aprobar.</div>
-    <div class="col-md-2">
-      <mat-checkbox id="Approve" [(ngModel)]="disabled">Aprobar</mat-checkbox>
-    </div>
-    <div class="col-md-2">
-      <button mat-raised-button color="primary" id="Publicar" [disabled]="!disabled" (click)="tool.state='Publicado';publishTool()" >Publicar</button>
-    </div>
-    <div class="col-md-12">
-      <mat-progress-bar mode="indeterminate" [hidden]="loadingPublish"></mat-progress-bar>
-      <p [hidden]="errorMessage">Ocurrio un error al publicar la herramienta.</p>
-    </div>
-  </div>  
-
-
+  </section>
   <div class="row">
     <div class="clearfix"></div>
-    <div class="col-12  col-md-12">
-      <h2>{{title}}</h2>
-
+    <div class="col-12  col-md-10 offset-md-1" style="margin-top: 2%">     
       <mat-accordion class="example-headers-align" multi="true">
 
         <mat-expansion-panel expanded="true" hideToggle="true" disabled="true">
           <mat-expansion-panel-header>
             <mat-panel-title>
-              <h5>Información básica</h5>
+               <h2>{{tool.name}}</h2>
             </mat-panel-title>
+            <mat-panel-description>
+              Información básica de la herramienta
+            </mat-panel-description>
           </mat-expansion-panel-header>
 
           <div class="row">
@@ -53,11 +28,11 @@
             </div>
 
             <div class="col-md-2">
-              <h6 class="font-weight-bold">Estado</h6>
-            </div>
-            <div class="col-md-4">
-              <label>{{tool.state}}</label>
-            </div>
+                <h6 class="font-weight-bold">Estado Actual</h6>
+              </div>
+              <div class="col-md-4">
+                <label>{{tool.state}}</label>
+              </div>
           </div>
 
           <div class="row">
@@ -104,8 +79,6 @@
             </div>
           </div>
 
-
-
           <div class="row">
             <div class="col-md-2">
               <h6 class="font-weight-bold">Url Sitio</h6>
@@ -125,6 +98,18 @@
               <label>{{tool.url_download}}</label>
             </div>
           </div>
+
+          <mat-action-row>          
+            <button [hidden]="!git" id="btnVerificar" type="button" color="primary" mat-raised-button (click)="tool.state='Revisado';reviewTool()"  matTooltip="Enviar concepto de verificado" >
+              <mat-icon aria-label="">check</mat-icon>Verificado
+            </button>
+
+            <button mat-raised-button id="Publicar" [hidden]="!admin" type="button" color="primary" (click)="tool.state='Publicado';publishTool()"  matTooltip="Publicar herramienta">
+                <mat-icon aria-label="">check</mat-icon>Publicar
+            </button>
+
+          </mat-action-row>
+
         </mat-expansion-panel>
 
         <app-list-example [idTool]="idTool"></app-list-example>
@@ -135,4 +120,5 @@
 
     </div>
   </div>
+
 </div>

@@ -1,49 +1,57 @@
-.conectate-card{
-    width: 250px;  
-    height: 300px;  
-    margin:0 10px 10px 0;    
-    display: inline-block;
-}
-
-.mat-card-title{
-    font-weight: 600;
-    min-height: 40px;
-}
-
-.mat-card-avatar {
-    height: 20px;
-    width: 20px;    
-}
-
-.conectate-header-image {  
-    background-size: cover;
-}
-
-.mat-card-actions {
-    position: absolute;
-    bottom: 30px;
-}
-
-.conectate-float-center {
-    float: right;
+  .slick-slider {
     position: relative;
-    left: -50%;   
-}
-.conectate-float-center > .conectate-child {
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+    /*border: solid 10px blue; */
+  }
+  
+  
+  .slick-list {
     position: relative;
-    left: 50%;
-}
-
-.conectate-nowrap {  
     overflow: hidden;
-    text-overflow: clip;  
-    max-height: 120px;
-    min-height: 120px;
-    text-align: justify;
-}
-
-.conectate-slides {
-    overflow-y: auto;  
-    justify-content: space-between;    
-    height: 328px;
-}  
+    display: block;
+    margin: 0;
+    padding: 0;
+    /*border: solid 10px green; */
+    width: 100%;
+  }
+  
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    display: block;
+    height: 36px;
+    width: 36px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 45%;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+  
+  .slick-prev {
+    left: -25px;
+    z-index: 11111;
+  }
+  
+  .slick-next {
+    right: -5px;
+    z-index: 11111;
+  }
+  

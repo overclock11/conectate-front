@@ -16,6 +16,8 @@ export class ListExampleComponent implements OnInit {
   @Input() idTool: number;
 
   public exampleList: Example[];
+  private widthMaxRow: number;
+  private showSlider: boolean = false;
 
   constructor(private dialog: MatDialog, private exampleService: ExamplesService) {
   }
@@ -28,6 +30,9 @@ export class ListExampleComponent implements OnInit {
     this.exampleService.getExamples(this.idTool).subscribe(
       result => {
         this.exampleList = result;
+        this.widthMaxRow = this.exampleList.length * 260;
+
+        this.showSlider = (this.widthMaxRow > 960);
       },
       error => {
         console.log(<any>error);
@@ -57,6 +62,14 @@ export class ListExampleComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.getExamples();
     });
+  }
+
+  nextButton():void{
+    document.getElementById('contenedor').scrollLeft += 900;
+  }
+
+  previousButton(): void{
+    document.getElementById('contenedor').scrollLeft -= 900;
   }
 
 }

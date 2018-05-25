@@ -1,34 +1,66 @@
-<mat-toolbar color="primary">
-    <ul class="nav">
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
-
-      <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
-      <li class="nav-item" >
-        <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: white; text-decoration: none" >Cerrar sesión</a>
-      </li>
-    </ul>
-</mat-toolbar>
-<router-outlet></router-outlet>
-<!--
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" #sidenav opened="true">
-        <ul class="nav">
-            <li class="nav-item" ><a class="nav-link" [routerLink]="['/home']" >Inicio</a></li>
-            <li class="nav-item" ><a class="nav-link" [routerLink]="['/tool']" >Agregar herramienta</a></li>
-            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/lista']" >Ingreso Admin</a></li>
-
-            <li class="nav-item" ><a class="nav-link" [routerLink]="['tool/drafts']" >Ingreso Asesor</a></li>
-            <li class="nav-item" >
-                <a class="nav-link" (click)="closeSession()" style="cursor: pointer; color: #007bff;" >Cerrar sesión</a>
-              </li>
-        </ul>
-    </mat-sidenav>
-    <mat-sidenav-content>
-
-    </mat-sidenav-content>
-</mat-sidenav-container>-->
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-expand-lg  navigation" style="padding: 0">
+            <a class="navbar-brand" [routerLink]="['/home']">
+              <img src="../assets/images/logo.png" width="250" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <span mat-menu-item style="margin-left:30em;size:20px;" [hidden]="!git" class="nav-link" [routerLink]="['/tool']">Agregar Herramienta</span> 
 
 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto main-nav ">
+                <li class="nav-item dropdown dropdown-slide" *ngIf="!sesion">
+                  <a class="nav-link dropdown-toggle" style="font-size: 20px" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ¿Eres miembro conectate?<span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  
+                  <!-- Dropdown list -->
+                
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" (click)="sesion='true'; admin='true'" [routerLink]="['tool/lista']">Inicio Admin</a>
+                    <a class="dropdown-item" (click)="git='true'; disabled='true'; sesion='true'" [routerLink]="['tool/drafts']">Inicio Asesor</a>
+                  </div>
+                </li> 
+  
+                <li class="nav-item dropdown dropdown-slide" *ngIf="git">
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">Carlos<span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  
+                  <!-- Dropdown list -->
+                
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" (click)="closeSession()">Cerrar sesión</a>
+                  </div>
+                </li> 
 
+                <li class="nav-item dropdown dropdown-slide" *ngIf="admin">
+                  <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" style="font-size: 20px;" aria-haspopup="true" aria-expanded="false">Santiago<span><i class="fa fa-angle-down"></i></span>
+                  </a>
+                  
+                  <!-- Dropdown list -->
+                
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" (click)="closeSession()">Cerrar sesión</a>
+                  </div>
+                </li> 
+  
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <router-outlet></router-outlet>
+
+  <footer>
+      <hr/>
+    <div class="container-fluid">
+        <p class="text-muted">Universidad de los Andes, 2018.</p>
+      </div>
+</footer>

@@ -17,7 +17,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-5">
-        <textarea [disabled]="editable" #description  required matInput placeholder="Descripción" name="description" [(ngModel)]="newExample.description"></textarea>
+        <textarea [disabled]="editable" #description  required matInput placeholder="Descripción" id="description" name="description" [(ngModel)]="newExample.description"></textarea>
       </mat-form-field>
       <mat-form-field class="col-md-6">
         <mat-select [disabled]="editable" #pedagogicStrategy placeholder="Estrategia pedagogica" [(ngModel)]="newExample.pedagogic_strategy"
@@ -29,7 +29,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="col-md-12">
-        <textarea matInput [disabled]="editable" #instructions placeholder="Instrucciones" name="Instrucciones"
+        <textarea matInput [disabled]="editable" #instructions placeholder="Instrucciones" id ="Instrucciones" name="Instrucciones"
                   [(ngModel)]="newExample.instructions" required></textarea>
       </mat-form-field>
       <form [formGroup]="invoiceForm">
@@ -61,11 +61,11 @@
     </p>
     <br><br>
   </div>
-  <div class="col-md-12">
+  <div class="offset-md-7 col-md-5">
     <mat-progress-bar mode="indeterminate" [hidden]="hideContent"></mat-progress-bar>
     <br>
     <button id ="Guardar" mat-raised-button color="primary" (click)="buildAndSend()" [disabled]="!exampleForm.form.valid" >{{this.buttonMessage}}</button>
-    <button mat-raised-button color="accent" [mat-dialog-close]="true">Cancelar</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true"><mat-icon aria-label="icon-button">clear</mat-icon>Cancelar</button>
   </div>
 </div>
 

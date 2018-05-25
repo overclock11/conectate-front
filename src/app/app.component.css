@@ -1,8 +1,48 @@
 mat-sidenav{
     width: 220px;
 }
-  
+
 .conectate-spacer {
     margin-left: 2em;
+
 }
-  
+
+.nav-link1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 15px;
+    color:white;
+    margin-left: 40em;
+    margin-top:2px;
+    padding: 1px 15px 1px 15px;
+}
+.nav-link1:hover{
+    font-family: 'Noto Sans', sans-serif;
+    color:white;
+    margin-left: 40em;
+    background-color:rgb(56, 65, 155);
+}
+
+
+.conectate-menu{
+
+    margin-left:1em;
+}
+
+
+.conectate-menu:hover , #miembro span.conectate-menu2{
+
+    color:white;
+}
+
+.caja-menu {
+    top: 4em;
+}
+
+.mat-menu-panel{
+    margin-top:50px;
+    margin-left: 20px;
+}
+
+.mat-menu-item{
+    color:blue;
+}

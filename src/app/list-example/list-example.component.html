@@ -1,36 +1,46 @@
 <mat-expansion-panel expanded="true">
     <mat-expansion-panel-header>
-      <mat-panel-title><h5>Actividades/Ejemplos</h5>
+      <mat-panel-title><h6>Actividades/Ejemplos</h6>
       </mat-panel-title>
       <mat-panel-description>
           Actividades donde fue utilizada esta herramienta.
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <mat-action-row class="conectate-slides">
-      <div class="conectate-float-center" >
-        <mat-card class="conectate-card float-left conectate-child" *ngFor="let example of exampleList">
-          <mat-card-header>
-            <div mat-card-avatar class="conectate-header-image">
-              <mat-icon>cloud_queue</mat-icon>
-            </div>
-            <mat-card-title>{{example.name}}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p class="text-justify conectate-nowrap">
-              {{example.description }}
-            </p>
-
-            <p class="text-center" >{{example.instructions}}</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button (click)="showExample(example)">Ver mas</button>
-            <button mat-button (click)="editExample(example)">Editar</button>
-          </mat-card-actions>
-        </mat-card>
-        <div class="clear"></div>
-      </div>
-    </mat-action-row>
+    <mat-action-row style="justify-content: flex-start;">
+        <div class="conectate-container ">
+          <div class="slick-slider">
+            <button [hidden]="!showSlider" class="slick-prev" type="button" style="display: block;" aria-label="Previous" (click)="previousButton()">
+                <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 42px">keyboard_arrow_left</mat-icon>            
+              </button>
+              <div  id="contenedor" class="slick-list">
+                <div class="slick-track" [ngStyle]="{'width': widthMaxRow + 'px' }"   style="opacity: 1; transform: translate3d( 2%, 0px, 0px);">
+                    <mat-card class="conectate-card float-left conectate-child"  *ngFor="let example of exampleList">
+                        <mat-card-header class="conectate-card-clickable" (click)="showExample(example)">
+                          <div mat-card-avatar class="conectate-header-image">
+                            <mat-icon>school</mat-icon>
+                          </div>
+                          <mat-card-title>{{example.name}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="conectate-card-clickable" (click)="showExample(example)">
+                          <p class="text-justify conectate-nowrap" style="color:black; margin: 0px; padding: 0px;"> 
+                            {{example.description }}
+                            <br/><br/>
+                            {{example.instructions}}</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                          <button mat-button (click)="editExample(example)">Editar</button>
+                        </mat-card-actions>
+                      </mat-card>                      
+                    <div class="clear"></div>             
+                </div>
+              </div>
+            <button [hidden]="!showSlider" class="slick-next" type="button" style="display: block;" (click)="nextButton()">
+                <mat-icon aria-label="icon-button" style="color: #237ABA; font-size: 42px">keyboard_arrow_right</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-action-row>
 
     <mat-action-row>
         <button id="Add" mat-raised-button color="primary" (click)="openDialog()">
